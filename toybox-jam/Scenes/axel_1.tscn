@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://cousgmj5ku8x2"]
+[gd_scene load_steps=3 format=3 uid="uid://c7vbf8uywhhfv"]
+
+[ext_resource type="Script" uid="uid://geauk5ds6dn" path="res://Scripts/test.gd" id="1_ytw8u"]
+[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/PieceType.gd" id="2_10qru"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ytw8u")
+
+[node name="PieceComponent" type="Node" parent="."]
+script = ExtResource("2_10qru")
+Name = "Crane"
