@@ -1,9 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://oqpikonfnwsl"]
 
-[ext_resource type="PackedScene" path="res://Scenes/axel_1.tscn" id="1_bo1nx"]
-[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/PieceType.gd" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/test.tscn" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_8gbba"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_bo1nx")]
+[node name="Test" parent="." instance=ExtResource("1_bo1nx")]
 script = ExtResource("2_8gbba")
+Unit_Name = ""
+Unit_Type = ""
+Unit_Cost = 0
+Unit_Damage = 0
+Unit_Max_Health = 0
+Unit_Range = 0.0
+Unit_Attack_Speed = 0.0
+Unit_Movement_Speed = 0.0
