@@ -1,5 +1,8 @@
 extends Node
 
+@onready
+var stats = $"Stats Component"
+
 @export
 var starting_state: State
 var current_state: State
@@ -31,3 +34,9 @@ func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
+
+func take_damage(damage: int):
+	var d = damage - stats.Unit_Defense
+	stats.Unit_Cur_Health = stats.Unit_Cur_Health - d
+	if (stats.Unit_Cur_Health <= 0):
+		change_state($"Death")

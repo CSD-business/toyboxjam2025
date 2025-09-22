@@ -4,17 +4,21 @@ class_name Unit_Stats
 ##The name of the unit.
 @export var Unit_Name : String
 
-##The damage type of the unit. Should be Attack, Defense, or Ranged.
+##The damage type of the unit. Attack, Defense, Ranged, or Tower.
 @export var Unit_Type : String
 
 ##How much the unit costs to summon
 @export var Unit_Cost : int
 
 ##How much damage the unit deals on each attack.
-@export var Unit_Damage : int
+@export var Unit_Strength : int
+##How much incoming damage is reduced.
+@export var Unit_Defense : int
 
-##How much health the unit has.
+##The maximum health the unit has.
 @export var Unit_Max_Health : int
+##The current health the unit has.
+var Unit_Cur_Health : int
 
 ##How far away the unit can attack its target from.
 @export var Unit_Range : float
