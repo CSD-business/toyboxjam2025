@@ -8,39 +8,45 @@ var target : Node
 
 func enter() -> void:
 	super()
-	#Get the enemy that we are locomoting to,
-	#it shouldn't change(?)
+func exit() -> void:
+	get_parent().aggro = target
 	
-func _physics_process(delta):
+func process_physics(delta : float) -> State:
 	#Research the navigation planes for this
 	#It should also rotate to face the enemy
 	#If target isn't set, find target.
+	if parent.stats.Unit_Type == "Tower":
+		pass
 	if (target == null):
 		find_target()
-	else:
-		#Else, move + rotate to target.
-		locomote()
-		#If terget is in attack range, move to attack state.
-		if (target.location.length <= $"../../Stats Component".Unit_Range):
+	else: 
+		#if the target is close enough, attack
+		locomote(delta)
+		#if we're close enough, attack
+		if check_distance() <= parent.stats.Unit_Range:
 			$"..".change_state(attack_state)
+	return null
 
-func find_target() -> State:
+func find_target() -> Unit:
 	#Get all Units on the field.
 	var target_list: Array[Node] = []
-	for child in parent.get_children():
-		if child == Unit:
-			target_list.append(child)
+	var closest_node = null
+	var min_distance = INF
+	var reference_position = parent.global_position
+	for child in parent.get_parent().get_children():
+		if child != parent:
+			var distance_squared = child.global_position.distance_to(reference_position)
+			if distance_squared < min_distance:
+				min_distance = distance_squared
+				closest_node = child
+	print("Closest node is " + str(closest_node) + " and is " + str(min_distance) + " units away.")
+	target = closest_node
+	return closest_node
 	
-	#Find the distances to all found Units.
-	var distance_list: Array[float] = []
-	for Unit in target_list:
-		var dist = $"../..".location.distance_to(Unit.location)
-		distance_list.append(dist)
-	
-	#Select the closest distance Unit as the current target.
-	target = target_list[distance_list.min()]
-	
-	return
+func locomote(delta):
+	parent.global_position = parent.global_position.move_toward(target.global_position, parent.stats.Unit_Movement_Speed * delta)
 
-func locomote():
-	pass
+func check_distance():
+	var distance = parent.global_position.distance_to(target.global_position)
+	#print("I am " + str(distance) + " units away from my target.")
+	return distance

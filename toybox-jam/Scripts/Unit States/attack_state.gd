@@ -1,14 +1,25 @@
 extends State
 
 @export
-var idle_state: State
-@export
 var locomote_state: State
+
+var target 
 
 func enter() -> void:
 	super()
+	target = get_parent().aggro
+	attack()
 	#Stop moving
 	parent.velocity.x = 0
 	parent.velocity.z = 0
-	#Get the aggro'd enemy and lower its health by attack
-	#parent.stats.Unit_Damage
+
+
+func attack() -> void:
+	if is_instance_valid(target):
+		target.get_child(1).take_damage(parent.stats.Unit_Strength)
+		#get child is (1) because state machine is the 2nd child of units
+		await get_tree().create_timer(parent.stats.Unit_Attack_Speed).timeout
+		attack()
+	else:
+		print("No target.")
+	

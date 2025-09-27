@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Toybox Jam"
+run/main_scene="uid://50ukxb886e3s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Textures/icon.svg"

@@ -29,14 +29,15 @@ Unit_Movement_Speed = 2.0
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_qc4db")
-starting_state = NodePath("")
+starting_state = NodePath("Locomote")
 
 [node name="Locomote" type="Node" parent="State Machine" node_paths=PackedStringArray("attack_state")]
 script = ExtResource("5_i3aeo")
 attack_state = NodePath("../Attack")
 
-[node name="Attack" type="Node" parent="State Machine"]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("locomote_state")]
 script = ExtResource("6_i3aeo")
+locomote_state = NodePath("../Locomote")
 
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("7_5wyu1")

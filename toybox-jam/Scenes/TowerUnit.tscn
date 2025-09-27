@@ -12,7 +12,7 @@
 height = 4.0
 radius = 1.25
 
-[node name="Unit" type="CharacterBody3D"]
+[node name="Tower" type="CharacterBody3D"]
 script = ExtResource("1_r5atb")
 
 [node name="Stats Component" type="Node" parent="."]
@@ -23,14 +23,18 @@ Unit_Max_Health = 10
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_8abi4")
-starting_state = NodePath("")
+starting_state = NodePath("Locomote")
 
 [node name="Locomote" type="Node" parent="State Machine" node_paths=PackedStringArray("attack_state")]
 script = ExtResource("5_uhiqb")
 attack_state = NodePath("../Attack")
 
-[node name="Attack" type="Node" parent="State Machine"]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("locomote_state")]
 script = ExtResource("6_4mupu")
+locomote_state = NodePath("../Locomote")
+
+[node name="Timer" type="Timer" parent="State Machine/Attack"]
+one_shot = true
 
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("7_s4dif")
@@ -43,3 +47,5 @@ shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("8_r5atb")
+
+[connection signal="timeout" from="State Machine/Attack/Timer" to="State Machine/Attack" method="_on_timer_timeout"]
