@@ -4,6 +4,9 @@ class_name Unit_Stats
 ##The name of the unit.
 @export var Unit_Name : String
 
+##Which side this Unit is on. 0 is for Ally, 1 is for Enemy.
+@export var Unit_Side : int
+
 ##The damage type of the unit. Attack, Defense, Ranged, or Tower.
 @export var Unit_Type : String
 
@@ -26,5 +29,5 @@ var Unit_Cur_Health : int
 ##How often the unit attacks.
 @export var Unit_Attack_Speed : float
 
-##How quick the unit can locomote.
+##The speed at which this Unit will move at.
 @export var Unit_Movement_Speed : float

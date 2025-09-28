@@ -22,4 +22,5 @@ func attack() -> void:
 		attack()
 	else:
 		print("No target.")
+		parent.state_machine.change_state(locomote_state)
 	

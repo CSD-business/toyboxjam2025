@@ -8,6 +8,7 @@
 [node name="Test" parent="." instance=ExtResource("1_bo1nx")]
 script = ExtResource("2_8gbba")
 Unit_Name = ""
+Unit_Side = 0
 Unit_Type = ""
 Unit_Cost = 0
 Unit_Strength = 0

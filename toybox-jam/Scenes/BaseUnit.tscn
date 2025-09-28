@@ -23,9 +23,9 @@ Unit_Cost = 1
 Unit_Strength = 2
 Unit_Defense = 1
 Unit_Max_Health = 4
-Unit_Range = 1.0
+Unit_Range = 1.5
 Unit_Attack_Speed = 0.5
-Unit_Movement_Speed = 2.0
+Unit_Movement_Speed = 100.0
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_qc4db")
@@ -50,3 +50,5 @@ shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("8_n6qls")
+
+[node name="NavAgent3D" type="NavigationAgent3D" parent="."]

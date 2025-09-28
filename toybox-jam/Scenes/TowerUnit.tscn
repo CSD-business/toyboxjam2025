@@ -18,6 +18,7 @@ script = ExtResource("1_r5atb")
 [node name="Stats Component" type="Node" parent="."]
 script = ExtResource("2_hao4w")
 Unit_Name = "Tower"
+Unit_Side = 1
 Unit_Type = "Tower"
 Unit_Max_Health = 10
 
@@ -47,5 +48,7 @@ shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("8_r5atb")
+
+[node name="NavAgent3D" type="NavigationAgent3D" parent="."]
 
 [connection signal="timeout" from="State Machine/Attack/Timer" to="State Machine/Attack" method="_on_timer_timeout"]
