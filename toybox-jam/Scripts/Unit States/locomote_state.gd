@@ -10,6 +10,7 @@ var target : Node
 
 func enter() -> void:
 	super()
+	$"../../AnimationPlayer".play("Pawn/Pawn_locomote")
 func exit() -> void:
 	get_parent().aggro = target
 	
