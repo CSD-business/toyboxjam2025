@@ -10,7 +10,7 @@ var target : Node
 
 func enter() -> void:
 	super()
-	$"../../AnimationPlayer".play("Pawn/Pawn_locomote")
+	$"../../AnimationPlayer".play("Pawn/pawn_locomotereal")
 func exit() -> void:
 	get_parent().aggro = target
 	
@@ -45,13 +45,12 @@ func find_target() -> Unit:
 	#Loop through all children in the scene.
 	for child in parent.get_parent().get_children():
 		#Target must have Unit in its name
-		if child.name.contains("Unit"):
-			#Target cannot be self, must be ready, and must be on opposing side.
-			if child != parent and child.unit_ready == true and is_opposing_unit(child):
-				var distance_squared = child.global_position.distance_to(reference_position)
-				if distance_squared < min_distance:
-					min_distance = distance_squared
-					closest_node = child
+		#Target cannot be self, must be ready, and must be on opposing side.
+		if child != parent and child.unit_ready == true and is_opposing_unit(child):
+			var distance_squared = child.global_position.distance_to(reference_position)
+			if distance_squared < min_distance:
+				min_distance = distance_squared
+				closest_node = child
 	#Set target to closest unit found from search, update NavAgent's target position to found unit's.
 	if (not closest_node == null):
 		target = closest_node

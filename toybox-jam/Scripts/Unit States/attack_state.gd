@@ -16,9 +16,12 @@ func enter() -> void:
 
 func attack() -> void:
 	if is_instance_valid(target):
-		$"../../AnimationPlayer".play("Pawn/Pawn_attack")
+		$"../../AnimationPlayer".play("Pawn/pawn_attackreal")
 		await get_tree().create_timer(.16).timeout #estimate for the contact
-		target.get_child(1).take_damage(parent.stats.Unit_Strength)
+		if is_instance_valid(target):
+			target.get_child(1).take_damage(parent.stats.Unit_Strength)
+		else:
+			pass #something to notate victory
 		#get child is (1) because state machine is the 2nd child of units
 		await get_tree().create_timer(parent.stats.Unit_Attack_Speed).timeout
 		attack()

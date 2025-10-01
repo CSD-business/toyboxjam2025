@@ -4,11 +4,13 @@ extends Node3D
 @export var raycast : RayCast3D
 @export var Pieces : Node
 @export var TestUnit : PackedScene
+@export var spawnid : int
 
+signal TrySpawnUnit(unit, location)
 func _process(_delta: float) -> void:
 	SnapToMouse()
 	if Input.is_action_just_pressed("Click"):
-		TrySpawnUnit()
+		TrySpawnUnit.emit(spawnid)
 
 func SnapToMouse():
 	#Project mouse position from the screen to a 3D space.
@@ -19,8 +21,3 @@ func SnapToMouse():
 	if raycast.is_colliding():
 		newLoc = raycast.get_collision_point()
 	position = newLoc
-
-func TrySpawnUnit():
-	var newSpawn = TestUnit.instantiate()
-	newSpawn.position = position
-	add_sibling(newSpawn)
