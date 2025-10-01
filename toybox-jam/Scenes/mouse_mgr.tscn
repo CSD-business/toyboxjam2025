@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://608dv7f546x5"]
+
+[ext_resource type="Script" uid="uid://dhl8067x38bhq" path="res://Scenes/mouse_mgr.gd" id="1_3ldsj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3ldsj"]
+
+[node name="MouseMgr" type="Node3D"]
+script = ExtResource("1_3ldsj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3ldsj")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 50)
+collide_with_areas = true
+collide_with_bodies = false
