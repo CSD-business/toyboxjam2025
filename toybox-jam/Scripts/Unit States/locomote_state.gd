@@ -23,7 +23,7 @@ func process_physics(delta : float) -> State:
 		find_target()
 		#Double check that we actually have a target. If not, pass.
 		if (target == null):
-			print("No targets!")
+			pass
 	else: 
 		#When we find a target, move towards that unit.
 		locomote(delta)
@@ -44,16 +44,14 @@ func find_target() -> Unit:
 	
 	#Loop through all children in the scene.
 	for child in parent.get_parent().get_children():
-		#Exclude ourselves from the search.
-		if child != parent:
-			#Only proceed if unit is on opposing side.
-			if is_opposing_unit(child):
-				#Determine if child is the closest unit found so far this search.
+		#Target must have Unit in its name
+		if child.name.contains("Unit"):
+			#Target cannot be self, must be ready, and must be on opposing side.
+			if child != parent and child.unit_ready == true and is_opposing_unit(child):
 				var distance_squared = child.global_position.distance_to(reference_position)
 				if distance_squared < min_distance:
 					min_distance = distance_squared
 					closest_node = child
-	print("Closest node is " + str(closest_node) + " and is " + str(min_distance) + " units away.")
 	#Set target to closest unit found from search, update NavAgent's target position to found unit's.
 	if (not closest_node == null):
 		target = closest_node

@@ -23,6 +23,5 @@ func attack() -> void:
 		await get_tree().create_timer(parent.stats.Unit_Attack_Speed).timeout
 		attack()
 	else:
-		print("No target.")
 		parent.state_machine.change_state(locomote_state)
 	

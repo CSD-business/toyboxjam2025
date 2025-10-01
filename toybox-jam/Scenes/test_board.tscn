@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://50ukxb886e3s"]
+[gd_scene load_steps=11 format=3 uid="uid://50ukxb886e3s"]
 
 [ext_resource type="PackedScene" uid="uid://cxe2i3bl3ygda" path="res://UI/player_hud.tscn" id="1_a83bs"]
 [ext_resource type="Material" uid="uid://d2eeq2xd3ovxg" path="res://Materials/debug_mat.tres" id="1_dct37"]
 [ext_resource type="PackedScene" uid="uid://ctwmlmwo1gusn" path="res://Scenes/TowerUnit.tscn" id="3_4yq3r"]
-[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/BaseUnit.tscn" id="3_b4jxp"]
-[ext_resource type="PackedScene" uid="uid://ye5taop0eltw" path="res://Scenes/UnitAtkE.tscn" id="4_4yq3r"]
 [ext_resource type="PackedScene" uid="uid://608dv7f546x5" path="res://Scenes/mouse_mgr.tscn" id="6_nafu8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8vppf"]
@@ -81,17 +79,8 @@ mesh = SubResource("PlaneMesh_a83bs")
 
 [node name="Pieces" type="Node" parent="."]
 
-[node name="Unit" parent="Pieces" instance=ExtResource("3_b4jxp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24934, 0, 15.0496)
-
 [node name="Tower" parent="Pieces" instance=ExtResource("3_4yq3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2961, 0, 3.87154)
-
-[node name="Unit2" parent="Pieces" instance=ExtResource("3_b4jxp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24934, 0, 16.0496)
-
-[node name="UnitAtkE" parent="Pieces" instance=ExtResource("4_4yq3r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 7)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10.5)

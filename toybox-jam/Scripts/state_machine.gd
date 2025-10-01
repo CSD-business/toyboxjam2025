@@ -41,6 +41,5 @@ func process_frame(delta: float) -> void:
 func take_damage(damage: int):
 	var d = damage - stats.Unit_Defense
 	stats.Unit_Cur_Health = stats.Unit_Cur_Health - d
-	print("I took " + str(d) + " damage, and have " + str(stats.Unit_Cur_Health) + " health left.")
 	if (stats.Unit_Cur_Health <= 0):
 		change_state($"Death")

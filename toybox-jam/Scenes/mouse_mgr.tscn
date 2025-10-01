@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://608dv7f546x5"]
+[gd_scene load_steps=4 format=3 uid="uid://608dv7f546x5"]
 
 [ext_resource type="Script" uid="uid://dhl8067x38bhq" path="res://Scenes/mouse_mgr.gd" id="1_3ldsj"]
+[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/BaseUnit.tscn" id="2_jmoqr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3ldsj"]
 
 [node name="MouseMgr" type="Node3D"]
 script = ExtResource("1_3ldsj")
+TestUnit = ExtResource("2_jmoqr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_3ldsj")

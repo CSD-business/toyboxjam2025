@@ -33,4 +33,5 @@ func _physics_process(delta: float) -> void:
 		state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
-	state_machine.process_frame(delta)
+	if unit_ready:
+		state_machine.process_frame(delta)
