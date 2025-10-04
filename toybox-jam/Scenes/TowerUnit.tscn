@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://k7ymxjmv2xxj" path="res://Scripts/state_machine.gd" id="3_8abi4"]
 [ext_resource type="Script" uid="uid://cxiythwvs8yr1" path="res://Scripts/Unit States/locomote_state.gd" id="5_uhiqb"]
 [ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="6_4mupu"]
+[ext_resource type="ArrayMesh" uid="uid://0yfj4u10g270" path="res://Meshes/Fort/fortenemy_fortunit.res" id="7_mhx4m"]
 [ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="7_s4dif"]
-[ext_resource type="ArrayMesh" uid="uid://2swrm257i21b" path="res://Meshes/ProtoTower_mesh.res" id="8_r5atb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 4.0
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = ExtResource("8_r5atb")
+mesh = ExtResource("7_mhx4m")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
 

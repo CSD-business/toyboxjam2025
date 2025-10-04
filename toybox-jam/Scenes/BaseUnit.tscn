@@ -99,7 +99,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25378, 0)
 shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("9_h8igi")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
