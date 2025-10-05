@@ -1,44 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctwmlmwo1gusn"]
+[gd_scene load_steps=9 format=3 uid="uid://bysogr38r2btk"]
 
-[ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_r5atb"]
-[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_hao4w"]
-[ext_resource type="Script" uid="uid://k7ymxjmv2xxj" path="res://Scripts/state_machine.gd" id="3_8abi4"]
-[ext_resource type="Script" uid="uid://cxiythwvs8yr1" path="res://Scripts/Unit States/locomote_state.gd" id="5_uhiqb"]
-[ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="6_4mupu"]
-[ext_resource type="ArrayMesh" uid="uid://0yfj4u10g270" path="res://Meshes/Fort/fortenemy_fortunit.res" id="7_mhx4m"]
-[ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="7_s4dif"]
+[ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_y5vmw"]
+[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_m0ihm"]
+[ext_resource type="Script" uid="uid://k7ymxjmv2xxj" path="res://Scripts/state_machine.gd" id="3_1dwbe"]
+[ext_resource type="Script" uid="uid://cxiythwvs8yr1" path="res://Scripts/Unit States/locomote_state.gd" id="4_njrpp"]
+[ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="5_py7kj"]
+[ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="6_kw50o"]
+[ext_resource type="ArrayMesh" uid="uid://0yfj4u10g270" path="res://Meshes/Fort/fortenemy_fortunit.res" id="7_r51lo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 4.0
 radius = 1.25
 
-[node name="Tower" type="CharacterBody3D"]
-script = ExtResource("1_r5atb")
+[node name="UnitTowA" type="CharacterBody3D"]
+script = ExtResource("1_y5vmw")
 
 [node name="Stats Component" type="Node" parent="."]
-script = ExtResource("2_hao4w")
+script = ExtResource("2_m0ihm")
 Unit_Name = "Tower"
-Unit_Side = 1
 Unit_Type = "Tower"
 Unit_Max_Health = 10
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("3_8abi4")
+script = ExtResource("3_1dwbe")
 starting_state = NodePath("Locomote")
 
 [node name="Locomote" type="Node" parent="State Machine" node_paths=PackedStringArray("attack_state")]
-script = ExtResource("5_uhiqb")
+script = ExtResource("4_njrpp")
 attack_state = NodePath("../Attack")
 
 [node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("locomote_state")]
-script = ExtResource("6_4mupu")
+script = ExtResource("5_py7kj")
 locomote_state = NodePath("../Locomote")
 
 [node name="Timer" type="Timer" parent="State Machine/Attack"]
 one_shot = true
 
 [node name="Death" type="Node" parent="State Machine"]
-script = ExtResource("7_s4dif")
+script = ExtResource("6_kw50o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -47,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_n6qls")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = ExtResource("7_mhx4m")
+mesh = ExtResource("7_r51lo")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvwfgpvf1hfvq"]
+
+[ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_nrfj0"]
+[ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_3eq1u"]
+[ext_resource type="Script" uid="uid://k7ymxjmv2xxj" path="res://Scripts/state_machine.gd" id="3_belw4"]
+[ext_resource type="Script" uid="uid://cxiythwvs8yr1" path="res://Scripts/Unit States/locomote_state.gd" id="4_iw37d"]
+[ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="5_ashjy"]
+[ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="6_vaxew"]
+[ext_resource type="ArrayMesh" uid="uid://brof3p2ipruuo" path="res://Meshes/ProtoUnit_mesh.res" id="7_pvi1v"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
+height = 3.0
+radius = 0.6
+
+[node name="UnitDefE" type="CharacterBody3D"]
+script = ExtResource("1_nrfj0")
+
+[node name="Stats Component" type="Node" parent="."]
+script = ExtResource("2_3eq1u")
+Unit_Name = "Unit"
+Unit_Side = 1
+Unit_Type = "Defense"
+Unit_Cost = 2
+Unit_Strength = 1
+Unit_Defense = 2
+Unit_Max_Health = 5
+Unit_Range = 1.0
+Unit_Attack_Speed = 1.0
+Unit_Movement_Speed = 1.25
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_belw4")
+starting_state = NodePath("Locomote")
+
+[node name="Locomote" type="Node" parent="State Machine" node_paths=PackedStringArray("attack_state")]
+script = ExtResource("4_iw37d")
+attack_state = NodePath("../Attack")
+
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("locomote_state")]
+script = ExtResource("5_ashjy")
+locomote_state = NodePath("../Locomote")
+
+[node name="Death" type="Node" parent="State Machine"]
+script = ExtResource("6_vaxew")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_n6qls")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("7_pvi1v")
+
+[node name="NavAgent3D" type="NavigationAgent3D" parent="."]

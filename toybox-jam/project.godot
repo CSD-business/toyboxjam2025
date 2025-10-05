@@ -15,6 +15,14 @@ run/main_scene="uid://50ukxb886e3s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Textures/icon.svg"
 
+[autoload]
+
+GlobalVars="*res://global_vars.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true

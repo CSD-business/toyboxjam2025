@@ -66,7 +66,7 @@ func locomote(delta):
 	#Set velocity towards target.
 	var vel_dir = parent.position.direction_to(nav_agent.get_next_path_position())
 	var vel_speed = parent.stats.Unit_Movement_Speed
-	parent.velocity = vel_dir * vel_speed * delta
+	parent.velocity = vel_dir * vel_speed * delta * 60
 	parent.move_and_slide()
 	
 	#Update unit range if target is a Tower.

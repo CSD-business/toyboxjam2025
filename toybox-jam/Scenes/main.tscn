@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://oqpikonfnwsl"]
 
-[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/BaseUnit.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/Units/BaseUnit.tscn" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_8gbba"]
 
 [node name="Main" type="Node3D"]

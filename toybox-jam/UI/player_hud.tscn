@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxe2i3bl3ygda"]
+[gd_scene load_steps=3 format=3 uid="uid://cxe2i3bl3ygda"]
 
+[ext_resource type="Script" uid="uid://doovi4xo3a52e" path="res://UI/player_hud.gd" id="1_5o0p8"]
 [ext_resource type="PackedScene" uid="uid://42gfe5fwvv5l" path="res://UI/unit_btn.tscn" id="1_pi8qp"]
 
 [node name="PlayerHUD" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5o0p8")
 
 [node name="Units" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -23,9 +25,14 @@ grow_vertical = 0
 
 [node name="UnitBtn" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
+Title = "Attacker"
 
 [node name="UnitBtn2" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
+Title = "Defender"
+Cost = "2"
 
 [node name="UnitBtn3" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
+Title = "Ranged"
+Cost = "2"

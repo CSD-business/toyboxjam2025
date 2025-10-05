@@ -2,15 +2,16 @@ extends Node3D
 
 @export var camera : Camera3D
 @export var raycast : RayCast3D
-@export var Pieces : Node
-@export var TestUnit : PackedScene
-@export var spawnid : int
 
-signal TrySpawnUnit(unit, location)
+signal TrySpawnUnit(side, Eid, Epos)
+
+func _ready() -> void:
+	GlobalVars.MouseMgr = self
+
 func _process(_delta: float) -> void:
 	SnapToMouse()
-	if Input.is_action_just_pressed("Click"):
-		TrySpawnUnit.emit(spawnid)
+	if Input.is_action_just_pressed("Click") and GlobalVars.OnUI == false:
+		TrySpawnUnit.emit(0, 0, Vector3(0,0,0))
 
 func SnapToMouse():
 	#Project mouse position from the screen to a 3D space.
