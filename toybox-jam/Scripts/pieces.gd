@@ -19,3 +19,8 @@ func Try_Spawn_Unit(side, EId, EPos):
 		var mos_position = 	GlobalVars.MouseMgr.position
 		newSpawn.position = mos_position
 		add_child(newSpawn)
+
+func Spawn_Enemy_Unit(location, unit):
+	var newSpawn = unit.instantiate()
+	newSpawn.position = location
+	add_child(newSpawn)

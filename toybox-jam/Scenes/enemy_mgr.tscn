@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba3lddhvv5a84"]
+
+[ext_resource type="Script" uid="uid://bp5ck1pb7s16j" path="res://Scripts/enemy_mgr.gd" id="1_ubxs6"]
+[ext_resource type="Script" uid="uid://cxfsgskuve51q" path="res://Scripts/level_enemy_dictionary.gd" id="2_qac8l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tux4v"]
+
+[node name="EnemyMgr" type="Node3D"]
+script = ExtResource("1_ubxs6")
+level_number = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tux4v")
+
+[node name="LevelEnemyDictionary" type="Node" parent="."]
+script = ExtResource("2_qac8l")
+
+[node name="Timer" type="Timer" parent="."]
