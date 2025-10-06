@@ -19,7 +19,7 @@ func attack() -> void:
 		$"../../AnimationPlayer".play("Pawn/pawn_attackreal")
 		await get_tree().create_timer(.16).timeout #estimate for the contact
 		if is_instance_valid(target):
-			target.get_child(1).take_damage(parent.stats.Unit_Strength)
+			target.get_child(1).take_damage(parent.stats)
 		else:
 			pass #something to notate victory
 		#get child is (1) because state machine is the 2nd child of units

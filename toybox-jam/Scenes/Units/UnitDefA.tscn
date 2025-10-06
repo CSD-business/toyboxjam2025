@@ -23,7 +23,6 @@ Unit_Type = "Defense"
 Unit_Cost = 2
 Unit_Strength = 1
 Unit_Defense = 2
-Unit_Max_Health = 5
 Unit_Range = 1.0
 Unit_Attack_Speed = 1.0
 Unit_Movement_Speed = 1.25

@@ -7,6 +7,8 @@ var stats = $"../Stats Component"
 var starting_state: State
 var current_state: State
 
+var mult : float
+
 var aggro = null
 
 # Initialize the state machine by giving each child state a reference to the
@@ -38,8 +40,31 @@ func process_frame(delta: float) -> void:
 	if new_state:
 		change_state(new_state)
 
-func take_damage(damage: int):
-	var d = damage - stats.Unit_Defense
+func take_damage(StatsRef : Node):
+	var d = float(StatsRef.Unit_Strength - stats.Unit_Defense)
+	find_type_adv(StatsRef.Unit_Type)
+	d = d * mult
 	stats.Unit_Cur_Health = stats.Unit_Cur_Health - d
 	if (stats.Unit_Cur_Health <= 0):
 		change_state($"Death")
+
+func find_type_adv(type : String):
+	var ourType = stats.Unit_Type
+	match type:
+		"Attack":
+			if ourType == "Ranged":
+				mult = 1.25
+				return
+		"Defense":
+			if ourType == "Attack":
+				mult = 1.25
+				return
+		"Ranged":
+			if ourType == "Defense":
+				mult = 1.25
+				return
+		"Tower":
+			mult = 1.0
+			return
+	mult = 1.0
+	return

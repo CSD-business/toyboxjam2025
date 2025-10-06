@@ -19,9 +19,9 @@ class_name Unit_Stats
 @export var Unit_Defense : int
 
 ##The maximum health the unit has.
-@export var Unit_Max_Health : int
+@export var Unit_Max_Health : float
 ##The current health the unit has.
-var Unit_Cur_Health : int
+var Unit_Cur_Health : float
 
 ##How far away the unit can attack its target from.
 @export var Unit_Range : float

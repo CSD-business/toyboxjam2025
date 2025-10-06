@@ -24,7 +24,6 @@ Unit_Type = "Ranged"
 Unit_Cost = 2
 Unit_Strength = 3
 Unit_Defense = 1
-Unit_Max_Health = 3
 Unit_Range = 3.0
 Unit_Attack_Speed = 2.0
 Unit_Movement_Speed = 1.5
