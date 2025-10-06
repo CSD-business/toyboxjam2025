@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://diq76w10dsjq7"]
+[gd_scene load_steps=10 format=3 uid="uid://diq76w10dsjq7"]
 
 [ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_6ffn2"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_ad1il"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="5_6ne2e"]
 [ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="6_8mqm3"]
 [ext_resource type="ArrayMesh" uid="uid://brof3p2ipruuo" path="res://Meshes/ProtoUnit_mesh.res" id="7_684fg"]
+[ext_resource type="ArrayMesh" uid="uid://rrvpee66mx8g" path="res://Meshes/UnitArrow_mesh.res" id="8_ad1il"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 3.0
@@ -52,3 +53,7 @@ shape = SubResource("CylinderShape3D_n6qls")
 mesh = ExtResource("7_684fg")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("8_ad1il")

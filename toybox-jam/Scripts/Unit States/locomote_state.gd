@@ -69,6 +69,10 @@ func locomote(delta):
 	parent.velocity = vel_dir * vel_speed * delta * 60
 	parent.move_and_slide()
 	
+	#Update rotation of Arrow (if not a Tower).
+	if not parent.stats.Unit_Type == "Tower":
+		$"../../Arrow".look_at(parent.position + parent.velocity)
+	
 	#Update unit range if target is a Tower.
 	if target.stats.Unit_Type == "Tower":
 		nav_agent.target_desired_distance = parent.stats.Unit_Range * 1.5

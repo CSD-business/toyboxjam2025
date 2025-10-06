@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7vbf8uywhhfv"]
+[gd_scene load_steps=15 format=3 uid="uid://c7vbf8uywhhfv"]
 
 [ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_qc4db"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_10qru"]
@@ -9,6 +9,7 @@
 [ext_resource type="Animation" uid="uid://3kwgdsmeof7w" path="res://Animations/Pawn/Pawn_locomote.res" id="7_i385o"]
 [ext_resource type="Animation" uid="uid://b4tenxho84x1j" path="res://Animations/Pawn/Pawn_attack.res" id="8_ap663"]
 [ext_resource type="ArrayMesh" uid="uid://bt0gk67maxacd" path="res://Meshes/PawnUnit_mesh.res" id="9_h8igi"]
+[ext_resource type="ArrayMesh" uid="uid://rrvpee66mx8g" path="res://Meshes/UnitArrow_mesh.res" id="10_5ou2n"]
 
 [sub_resource type="Animation" id="Animation_i385o"]
 resource_name = "pawn_attackreal"
@@ -102,3 +103,7 @@ shape = SubResource("CylinderShape3D_n6qls")
 mesh = ExtResource("9_h8igi")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("10_5ou2n")
