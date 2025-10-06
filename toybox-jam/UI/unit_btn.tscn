@@ -23,7 +23,6 @@ texture_hover = ExtResource("3_h52gf")
 texture_disabled = ExtResource("4_h52gf")
 script = ExtResource("2_a7yet")
 Title = "Attack"
-Cost = "1"
 
 [node name="TitleTxt" type="Label" parent="."]
 layout_mode = 1

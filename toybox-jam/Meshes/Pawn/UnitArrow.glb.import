@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dncpv1rwu2l2t"
+uid="uid://d3oan0cywj0v8"
 path="res://.godot/imported/UnitArrow.glb-08ee2a814b996f0bd58bc86ae2ffd967.scn"
 
 [deps]
@@ -40,7 +40,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/UnitArrow_mesh.res"
+"save_to_file/path": "res://Meshes/UnitArrowE_mesh.res"
 }
 }
 }

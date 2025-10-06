@@ -28,16 +28,17 @@ grow_vertical = 0
 [node name="UnitBtn" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
 Title = "Attacker"
+Cost = 1
 
 [node name="UnitBtn2" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
 Title = "Defender"
-Cost = "2"
+Cost = 2
 
 [node name="UnitBtn3" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
 Title = "Ranged"
-Cost = "2"
+Cost = 2
 
 [node name="StaminaPb" type="ProgressBar" parent="."]
 layout_mode = 1
@@ -49,9 +50,7 @@ offset_top = -130.0
 offset_right = 289.0
 offset_bottom = -103.0
 grow_vertical = 0
-max_value = 5.0
-step = 1.0
-value = 2.0
+max_value = 7.0
 show_percentage = false
 script = ExtResource("3_lhy1a")
 

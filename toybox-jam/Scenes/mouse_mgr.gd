@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	SnapToMouse()
 	if Input.is_action_just_pressed("Click") and GlobalVars.OnUI == false:
-		TrySpawnUnit.emit(0, 0, Vector3(0,0,0))
+		TrySpawnUnit.emit()
 
 func SnapToMouse():
 	#Project mouse position from the screen to a 3D space.

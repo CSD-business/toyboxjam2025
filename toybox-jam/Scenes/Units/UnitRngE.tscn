@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="5_spylg"]
 [ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="6_rj1xp"]
 [ext_resource type="ArrayMesh" uid="uid://brof3p2ipruuo" path="res://Meshes/ProtoUnit_mesh.res" id="7_nc6oj"]
-[ext_resource type="ArrayMesh" uid="uid://rrvpee66mx8g" path="res://Meshes/UnitArrow_mesh.res" id="8_f5hcb"]
+[ext_resource type="ArrayMesh" uid="uid://cnqyyx61qwxff" path="res://Meshes/UnitArrowE_mesh.res" id="8_f5hcb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 3.0
@@ -56,5 +56,5 @@ mesh = ExtResource("7_nc6oj")
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="Arrow" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = ExtResource("8_f5hcb")

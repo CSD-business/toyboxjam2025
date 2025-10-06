@@ -72,6 +72,7 @@ func locomote(delta):
 	#Update rotation of Arrow (if not a Tower).
 	if not parent.stats.Unit_Type == "Tower":
 		$"../../Arrow".look_at(parent.position + parent.velocity)
+		$"../../Arrow".rotation = Vector3(0, $"../../Arrow".rotation.y, 0)
 	
 	#Update unit range if target is a Tower.
 	if target.stats.Unit_Type == "Tower":
