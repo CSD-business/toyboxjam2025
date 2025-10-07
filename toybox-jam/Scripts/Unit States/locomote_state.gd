@@ -19,11 +19,11 @@ func process_physics(delta : float) -> State:
 	if parent.stats.Unit_Type == "Tower":
 		pass
 	#If we don't have a target, search for a target.
+	
+	find_target()
+	#Double check that we actually have a target. If not, pass.
 	if (target == null):
-		find_target()
-		#Double check that we actually have a target. If not, pass.
-		if (target == null):
-			pass
+		pass
 	else: 
 		#When we find a target, move towards that unit.
 		locomote(delta)

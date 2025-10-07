@@ -1,2 +1,2 @@
 extends Node
-@export var Level1 = ["M1-ATK", "WAIT1", "M2-ATK", "WAIT1", "M3-ATK", "WAIT1"]
+@export var Level1 = ["M1-ATK", "WAIT3", "M2-RNG", "WAIT3", "M3-DEF", "WAIT3"]

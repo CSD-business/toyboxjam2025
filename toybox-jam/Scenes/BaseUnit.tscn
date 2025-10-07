@@ -68,7 +68,6 @@ Unit_Type = "Attack"
 Unit_Cost = 1
 Unit_Strength = 2
 Unit_Defense = 1
-Unit_Max_Health = 4
 Unit_Range = 1.5
 Unit_Attack_Speed = 0.5
 Unit_Movement_Speed = 100.0

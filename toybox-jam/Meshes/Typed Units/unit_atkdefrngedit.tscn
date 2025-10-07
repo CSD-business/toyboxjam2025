@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrpk7dxqgq4g"]
+
+[ext_resource type="PackedScene" uid="uid://cky2l2p745qie" path="res://Meshes/Typed Units/unit_ATKDEFRNG.glb" id="1_3xqg2"]
+[ext_resource type="AnimationLibrary" uid="uid://c8to04f24oi0v" path="res://Meshes/Typed Units/typed_unit_anims_library.res" id="2_6ijv7"]
+
+[node name="unit_ATKDEFRNG" instance=ExtResource("1_3xqg2")]
+
+[node name="Shield_001" parent="Unit_DEF" index="2"]
+transform = Transform3D(-0.539591, -8.1476e-08, 3.56143e-15, 0, -2.35863e-08, -0.539591, 8.1476e-08, -0.539591, 2.35863e-08, 0.477886, 0.943038, -0.829043)
+
+[node name="Sword_001" parent="Unit_ATK" index="2"]
+transform = Transform3D(-0.229653, -0.972854, -0.00451438, -0.973272, 0.229535, 0.00116781, -0.000631651, 0.0294758, -0.158092, 0, 0.84045, -0.867504)
+
+[node name="Gun_001" parent="Unit_RNG" index="1"]
+transform = Transform3D(2.06774e-08, -0.473044, 1.49072e-08, -0.473044, -2.06774e-08, 7.01488e-16, -2.38977e-16, -7.14276e-08, -0.0987257, -1.64228e-08, 1.28756, -0.899875)
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": ExtResource("2_6ijv7")
+}

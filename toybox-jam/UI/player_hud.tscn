@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxe2i3bl3ygda"]
 
-[ext_resource type="Script" uid="uid://doovi4xo3a52e" path="res://UI/player_hud.gd" id="1_5o0p8"]
+[ext_resource type="Script" path="res://UI/player_hud.gd" id="1_5o0p8"]
 [ext_resource type="PackedScene" uid="uid://42gfe5fwvv5l" path="res://UI/unit_btn.tscn" id="1_pi8qp"]
 [ext_resource type="LabelSettings" uid="uid://btn5lxtli2g5q" path="res://UI/Fonts/BodyText.tres" id="3_dpci0"]
 [ext_resource type="Script" uid="uid://dvnrn7j7f4p03" path="res://UI/stamina_pb.gd" id="3_lhy1a"]
@@ -36,11 +36,13 @@ Cost = 1
 layout_mode = 2
 Title = "Defender"
 Cost = 2
+UnitId = 1
 
 [node name="UnitBtn3" parent="Units" instance=ExtResource("1_pi8qp")]
 layout_mode = 2
 Title = "Ranged"
 Cost = 2
+UnitId = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
