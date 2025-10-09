@@ -36,14 +36,14 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, 0.013712, 0, 
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Unit")
+tracks/2/path = NodePath("Unit_ATK")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array()
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Unit")
+tracks/3/path = NodePath("Unit_ATK")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array()
@@ -66,6 +66,20 @@ tracks/1/path = NodePath("../Unit")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -0.0082963, 0.049166, 0, 0.0666667, 1, -0.0219259, 0.129939, 0, 0.1, 1, -0.0337778, 0.200176, 0, 0.133333, 1, -0.0388148, 0.224759, 0, 0.166667, 1, -0.0340741, 0.175593, 0, 0.2, 1, -0.0222222, 0.0842846, 0, 0.233333, 1, -0.0077037, 0.024583, 0, 0.266667, 1, 0.00770371, 0.024583, 0, 0.3, 1, 0.0222222, 0.0842847, 0, 0.333333, 1, 0.0340741, 0.175593, 0, 0.366667, 1, 0.0388148, 0.224759, 0, 0.4, 1, 0.0337778, 0.200176, 0, 0.433333, 1, 0.0219259, 0.129939, 0, 0.466667, 1, 0.0082963, 0.049166, 0, 0.5, 1, 0, 0, 0)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit_ATK")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.000918828, 0.000711929, 0.00953499, 0.999954, 0.0666667, 1, -0.00239314, 0.00183684, 0.0252005, 0.999678, 0.1, 1, -0.00365644, 0.00279155, 0.0388194, 0.999236, 0.133333, 1, -0.00418664, 0.00310768, 0.0446059, 0.998991, 0.166667, 1, -0.00370536, 0.00243111, 0.0391582, 0.999223, 0.2, 1, -0.00244722, 0.00117099, 0.0255389, 0.99967, 0.233333, 1, -0.000853099, 0.000342388, 0.00885393, 0.99996, 0.266667, 1, 0.000853101, 0.000342389, -0.00885393, 0.99996, 0.3, 1, 0.00244722, 0.00117099, -0.0255389, 0.99967, 0.333333, 1, 0.00370536, 0.00243112, -0.0391581, 0.999223, 0.366667, 1, 0.00418664, 0.00310769, -0.0446059, 0.998991, 0.4, 1, 0.00365644, 0.00279155, -0.0388193, 0.999236, 0.433333, 1, 0.00239314, 0.00183684, -0.0252005, 0.999678, 0.466667, 1, 0.000918828, 0.00071193, -0.00953498, 0.999954, 0.5, 1, 0, 0, 0, 1)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit_ATK")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -0.0082963, 0.049166, 0, 0.0666667, 1, -0.0219259, 0.129939, 0, 0.1, 1, -0.0337778, 0.200176, 0, 0.133333, 1, -0.0388148, 0.224759, 0, 0.166667, 1, -0.0340741, 0.175593, 0, 0.2, 1, -0.0222222, 0.0842846, 0, 0.233333, 1, -0.0077037, 0.024583, 0, 0.266667, 1, 0.00770371, 0.024583, 0, 0.3, 1, 0.0222222, 0.0842847, 0, 0.333333, 1, 0.0340741, 0.175593, 0, 0.366667, 1, 0.0388148, 0.224759, 0, 0.4, 1, 0.0337778, 0.200176, 0, 0.433333, 1, 0.0219259, 0.129939, 0, 0.466667, 1, 0.0082963, 0.049166, 0, 0.5, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i385o"]
 _data = {
@@ -257,6 +271,7 @@ Unit_Strength = 2
 Unit_Defense = 1
 Unit_Range = 2.0
 Unit_Attack_Speed = 0.5
+Unit_Animation_Attack_Delay = 0.5
 Unit_Movement_Speed = 2.0
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
@@ -290,30 +305,29 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = ExtResource("8_qo3cf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath(".")
 libraries = {
 &"Pawn": SubResource("AnimationLibrary_i385o"),
 &"typed_unit_anims_library": ExtResource("11_foxl8")
 }
 
-[node name="Unit" type="Node3D" parent="."]
-transform = Transform3D(0.996645, 0.0816928, 0.0049679, -0.081652, 0.996629, -0.00792291, -0.0055984, 0.0074907, 0.999956, 0.0355644, 0.191049, 0)
+[node name="Unit_ATK" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="body" type="MeshInstance3D" parent="Unit"]
+[node name="body" type="MeshInstance3D" parent="Unit_ATK"]
 mesh = SubResource("ArrayMesh_ccfod")
 skeleton = NodePath("")
 
-[node name="hat_002" type="MeshInstance3D" parent="Unit"]
+[node name="hat_002" type="MeshInstance3D" parent="Unit_ATK"]
 transform = Transform3D(1.10862, 0, 0, 0, 1.10862, 0, 0, 0, 1.10862, 0, 2.32749, 0)
 mesh = SubResource("ArrayMesh_j02ye")
 skeleton = NodePath("")
 
-[node name="Sword" type="MeshInstance3D" parent="Unit"]
-transform = Transform3D(4.37114e-08, -1, -9.92985e-08, -1, -4.37114e-08, -4.4952e-15, 9.7826e-16, 6.27833e-07, -0.158161, 0, 0.84045, -0.867504)
+[node name="Sword_001" type="MeshInstance3D" parent="Unit_ATK"]
+transform = Transform3D(0.200482, 0.0756411, -0.154487, -0.258203, 0.965845, 0.00344774, 0.94506, 0.247836, 0.0337144, 0.121645, 0.846028, -0.867504)
 mesh = SubResource("ArrayMesh_m8p06")
 skeleton = NodePath("")
 
-[node name="vest_002" type="MeshInstance3D" parent="Unit"]
+[node name="vest_002" type="MeshInstance3D" parent="Unit_ATK"]
 transform = Transform3D(1.16772, 0, 0, 0, 1.16772, 0, 0, 0, 1.16772, 0, -0.154044, 0)
 mesh = SubResource("ArrayMesh_ygdat")
 skeleton = NodePath("")

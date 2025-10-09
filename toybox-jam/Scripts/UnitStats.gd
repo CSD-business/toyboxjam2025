@@ -29,5 +29,8 @@ var Unit_Cur_Health : float
 ##How often the unit attacks.
 @export var Unit_Attack_Speed : float
 
+##The time before damage should be inflicted based on the animation speed
+@export var Unit_Animation_Attack_Delay : float
+
 ##The speed at which this Unit will move at.
 @export var Unit_Movement_Speed : float
