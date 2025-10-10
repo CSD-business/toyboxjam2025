@@ -1,16 +1,23 @@
 extends Node3D
 
+@onready var MatIn = preload("res://Materials/MouseMgr.tres")
+@onready var MatOut = preload("res://Materials/MouseMgrNo.tres")
+
 @export var camera : Camera3D
 @export var raycast : RayCast3D
+var InRegion : bool
 
-signal TrySpawnUnit(side, Eid, Epos)
+signal TrySpawnUnit()
 
 func _ready() -> void:
 	GlobalVars.MouseMgr = self
+	$AnimationPlayer.play("arrow_loop")
+	InRegion = false
 
 func _process(_delta: float) -> void:
 	SnapToMouse()
-	if Input.is_action_just_pressed("Click") and GlobalVars.OnUI == false:
+	UpdateMat()
+	if Input.is_action_just_pressed("Click") and GlobalVars.OnUI == false and InRegion:
 		TrySpawnUnit.emit()
 
 func SnapToMouse():
@@ -22,3 +29,15 @@ func SnapToMouse():
 	if raycast.is_colliding():
 		newLoc = raycast.get_collision_point()
 	position = newLoc
+
+func UpdateMat():
+	if InRegion == true:
+		$Node3D/Arrow1.material_override = MatIn
+		$Node3D/Arrow2.material_override = MatIn
+		$Node3D/Arrow3.material_override = MatIn
+		$Node3D/Arrow4.material_override = MatIn
+	else:
+		$Node3D/Arrow1.material_override = MatOut
+		$Node3D/Arrow2.material_override = MatOut
+		$Node3D/Arrow3.material_override = MatOut
+		$Node3D/Arrow4.material_override = MatOut

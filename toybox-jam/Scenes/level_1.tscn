@@ -9,16 +9,16 @@
 [ext_resource type="MeshLibrary" uid="uid://bkcg4s7w0ppxd" path="res://Meshes/Wood/woodmeshlibrary.tres" id="7_8i23i"]
 [ext_resource type="Script" uid="uid://7ij5o482pvt4" path="res://Scripts/pieces.gd" id="8_8yhm2"]
 [ext_resource type="PackedScene" uid="uid://ctwmlmwo1gusn" path="res://Scenes/Units/UnitTowE.tscn" id="9_pjppf"]
-[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/Units/BaseUnit.tscn" id="10_yltlr"]
 [ext_resource type="ArrayMesh" uid="uid://cjq7qdu4srjo0" path="res://Meshes/Blocks/blocks_Cube_001.res" id="11_8i23i"]
 [ext_resource type="ArrayMesh" uid="uid://bbhbcfdokv3od" path="res://Meshes/Blocks/blocks_Cube_002.res" id="12_8yhm2"]
 [ext_resource type="ArrayMesh" uid="uid://ddbn4op8fqqhe" path="res://Meshes/Blocks/blocks_Cube_003.res" id="13_pjppf"]
 [ext_resource type="ArrayMesh" uid="uid://ccor4l5pukrv1" path="res://Meshes/Blocks/blocks_Cube_004.res" id="14_yltlr"]
 [ext_resource type="ArrayMesh" uid="uid://wkmhbjm7ynuq" path="res://Meshes/Blocks/blocks_Cube_005.res" id="15_6ssoq"]
+[ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="16_8i23i"]
 [ext_resource type="ArrayMesh" uid="uid://dtofr5xo47raw" path="res://Meshes/Blocks/blocks_Cube_006.res" id="16_imks0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8i23i"]
-size = Vector3(20, 0, 40)
+size = Vector3(40, 0, 80)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_6ssoq"]
 vertices = PackedVector3Array(-8.5, 0.5, 0.5, -8.5, 0.5, 19.5, -0.5, 0.5, 19.5, -0.5, 0.5, 0.5)
@@ -46,16 +46,18 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="MouseMgr" parent="." node_paths=PackedStringArray("camera", "raycast") instance=ExtResource("2_af3po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 11)
 camera = NodePath("../Camera3D")
 raycast = NodePath("../Camera3D/RayCast3D")
 
 [node name="EnemyMgr" parent="." instance=ExtResource("3_uy8f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, 0.5)
 ATK_UNIT = ExtResource("4_6r07y")
 DEF_UNIT = ExtResource("5_6ioyp")
 RNG_UNIT = ExtResource("6_oovug")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1.00361, 10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.00361001, 10.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_8i23i")
@@ -97,9 +99,6 @@ script = ExtResource("8_8yhm2")
 [node name="Tower" parent="Pieces" instance=ExtResource("9_pjppf")]
 transform = Transform3D(0.629, 0, 0, 0, 0.629, 0, 0, 0, 0.629, -4.2961, 0, 3.87154)
 
-[node name="Unit" parent="Pieces" instance=ExtResource("10_yltlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18042, 0, 17.4175)
-
 [node name="BlocksCube001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.710026, 0, -0.704176, 0, 1, 0, 0.704176, 0, 0.710026, -10.2595, 2.07645, 3.88109)
 mesh = ExtResource("11_8i23i")
@@ -124,4 +123,8 @@ mesh = ExtResource("15_6ssoq")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.92879, 1.99929, 16.1913)
 mesh = ExtResource("16_imks0")
 
+[node name="AllyRegion" parent="." instance=ExtResource("16_8i23i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 15)
+
+[connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]

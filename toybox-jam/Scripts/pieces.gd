@@ -6,6 +6,8 @@ var AllyUnitId : int
 
 func _ready() -> void:
 	GlobalVars.Pieces = self
+	AllyUnitId = 0
+	GlobalVars.CurCost = 1
 	AllyUnits = [load("res://Scenes/Units/UnitAtkA.tscn"), load("res://Scenes/Units/UnitDefA.tscn"), load("res://Scenes/Units/UnitRngA.tscn")]
 	EnemyUnits = [load("res://Scenes/Units/UnitAtkE.tscn"), load("res://Scenes/Units/UnitDefE.tscn"), load("res://Scenes/Units/UnitRngE.tscn")]
 

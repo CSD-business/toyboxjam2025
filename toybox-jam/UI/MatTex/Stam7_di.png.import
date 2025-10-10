@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbpbfpp2sy1c4"
-path="res://.godot/imported/StamBack_di.png-2ec9c399c2a007a0e11346985807da89.ctex"
+uid="uid://bukdmqgcjjr7e"
+path="res://.godot/imported/Stam7_di.png-ba15ebd4cb43eb27a5f744b72befa3e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/MatTex/StamBack_di.png"
-dest_files=["res://.godot/imported/StamBack_di.png-2ec9c399c2a007a0e11346985807da89.ctex"]
+source_file="res://UI/MatTex/Stam7_di.png"
+dest_files=["res://.godot/imported/Stam7_di.png-ba15ebd4cb43eb27a5f744b72befa3e0.ctex"]
 
 [params]
 

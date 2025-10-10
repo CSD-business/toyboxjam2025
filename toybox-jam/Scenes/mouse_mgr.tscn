@@ -1,16 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://608dv7f546x5"]
+[gd_scene load_steps=7 format=3 uid="uid://608dv7f546x5"]
 
 [ext_resource type="Script" uid="uid://dhl8067x38bhq" path="res://Scenes/mouse_mgr.gd" id="1_3ldsj"]
+[ext_resource type="ArrayMesh" uid="uid://cd1ixnpxain0k" path="res://Meshes/SysObj/MouseMgr_mesh.res" id="2_jmoqr"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_3ldsj"]
+[sub_resource type="Animation" id="Animation_xbuly"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Arrow1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Arrow2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Arrow3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Arrow4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[node name="MouseMgr" type="Node3D"]
+[sub_resource type="Animation" id="Animation_jmoqr"]
+resource_name = "arrow_loop"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Arrow1")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1, 0, 0, 0.2, 1, -1, 0, 0, 0.3, 1, -0.5, 0, 0, 0.4, 1, -1, 0, 0, 1, 1, -1, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Arrow2")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -1, 0.2, 1, 0, 0, -1, 0.3, 1, 0, 0, -0.5, 0.4, 1, 0, 0, -1, 1, 1, 0, 0, -1)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Arrow3")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 0, 0, 0.2, 1, 1, 0, 0, 0.3, 1, 0.5, 0, 0, 0.4, 1, 1, 0, 0, 1, 1, 1, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Arrow4")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 1, 0.2, 1, 0, 0, 1, 0.3, 1, 0, 0, 0.5, 0.4, 1, 0, 0, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbuly"]
+_data = {
+&"RESET": SubResource("Animation_xbuly"),
+&"arrow_loop": SubResource("Animation_jmoqr")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jmoqr"]
+radius = 0.2
+
+[node name="MouseMgr" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_3ldsj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_3ldsj")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 50)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xbuly")
+}
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.1, 0)
+
+[node name="Arrow1" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0, 0)
+mesh = ExtResource("2_jmoqr")
+skeleton = NodePath("../..")
+
+[node name="Arrow2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+mesh = ExtResource("2_jmoqr")
+skeleton = NodePath("../..")
+
+[node name="Arrow3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, 0)
+mesh = ExtResource("2_jmoqr")
+skeleton = NodePath("../..")
+
+[node name="Arrow4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+mesh = ExtResource("2_jmoqr")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_jmoqr")
