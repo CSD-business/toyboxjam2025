@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dnsry4a058utk"]
+[gd_scene load_steps=28 format=4 uid="uid://dnsry4a058utk"]
 
 [ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_xmlo0"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_qo3cf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Animation" uid="uid://b4tenxho84x1j" path="res://Animations/Pawn/Pawn_attack.res" id="9_pg8jt"]
 [ext_resource type="Animation" uid="uid://3kwgdsmeof7w" path="res://Animations/Pawn/Pawn_locomote.res" id="10_siuja"]
 [ext_resource type="AnimationLibrary" uid="uid://c8to04f24oi0v" path="res://Meshes/Typed Units/typed_unit_anims_library.res" id="11_foxl8"]
+[ext_resource type="Script" uid="uid://brjq0d31b66wu" path="res://Scripts/unit_rotation.gd" id="12_siuja"]
 [ext_resource type="Texture2D" uid="uid://d264mqurmb4h0" path="res://Meshes/Typed Units/unit_ATKDEFRNG_f72df235a0f6df5777fc1189bb759758.jpg" id="12_wfle8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
@@ -36,14 +37,14 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, 0, 0.013712, 0, 
 tracks/2/type = "position_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Unit_ATK")
+tracks/2/path = NodePath("Unit")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array()
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Unit_ATK")
+tracks/3/path = NodePath("Unit")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array()
@@ -52,34 +53,20 @@ tracks/3/keys = PackedFloat32Array()
 resource_name = "pawn_locomotereal"
 length = 0.5
 loop_mode = 1
-tracks/0/type = "rotation_3d"
+tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Unit")
+tracks/0/path = NodePath("Unit/Unit_Pivot")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.000918828, 0.000711929, 0.00953499, 0.999954, 0.0666667, 1, -0.00239314, 0.00183684, 0.0252005, 0.999678, 0.1, 1, -0.00365644, 0.00279155, 0.0388194, 0.999236, 0.133333, 1, -0.00418664, 0.00310768, 0.0446059, 0.998991, 0.166667, 1, -0.00370536, 0.00243111, 0.0391582, 0.999223, 0.2, 1, -0.00244722, 0.00117099, 0.0255389, 0.99967, 0.233333, 1, -0.000853099, 0.000342388, 0.00885393, 0.99996, 0.266667, 1, 0.000853101, 0.000342389, -0.00885393, 0.99996, 0.3, 1, 0.00244722, 0.00117099, -0.0255389, 0.99967, 0.333333, 1, 0.00370536, 0.00243112, -0.0391581, 0.999223, 0.366667, 1, 0.00418664, 0.00310769, -0.0446059, 0.998991, 0.4, 1, 0.00365644, 0.00279155, -0.0388193, 0.999236, 0.433333, 1, 0.00239314, 0.00183684, -0.0252005, 0.999678, 0.466667, 1, 0.000918828, 0.00071193, -0.00953498, 0.999954, 0.5, 1, 0, 0, 0, 1)
-tracks/1/type = "position_3d"
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -0.0082963, 0.049166, 0, 0.0666667, 1, -0.0219259, 0.129939, 0, 0.1, 1, -0.0337778, 0.200176, 0, 0.133333, 1, -0.0388148, 0.224759, 0, 0.166667, 1, -0.0340741, 0.175593, 0, 0.2, 1, -0.0222222, 0.0842846, 0, 0.233333, 1, -0.0077037, 0.024583, 0, 0.266667, 1, 0.00770371, 0.024583, 0, 0.3, 1, 0.0222222, 0.0842847, 0, 0.333333, 1, 0.0340741, 0.175593, 0, 0.366667, 1, 0.0388148, 0.224759, 0, 0.4, 1, 0.0337778, 0.200176, 0, 0.433333, 1, 0.0219259, 0.129939, 0, 0.466667, 1, 0.0082963, 0.049166, 0, 0.5, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Unit")
+tracks/1/path = NodePath("Unit/Unit_Pivot")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -0.0082963, 0.049166, 0, 0.0666667, 1, -0.0219259, 0.129939, 0, 0.1, 1, -0.0337778, 0.200176, 0, 0.133333, 1, -0.0388148, 0.224759, 0, 0.166667, 1, -0.0340741, 0.175593, 0, 0.2, 1, -0.0222222, 0.0842846, 0, 0.233333, 1, -0.0077037, 0.024583, 0, 0.266667, 1, 0.00770371, 0.024583, 0, 0.3, 1, 0.0222222, 0.0842847, 0, 0.333333, 1, 0.0340741, 0.175593, 0, 0.366667, 1, 0.0388148, 0.224759, 0, 0.4, 1, 0.0337778, 0.200176, 0, 0.433333, 1, 0.0219259, 0.129939, 0, 0.466667, 1, 0.0082963, 0.049166, 0, 0.5, 1, 0, 0, 0)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Unit_ATK")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.000918828, 0.000711929, 0.00953499, 0.999954, 0.0666667, 1, -0.00239314, 0.00183684, 0.0252005, 0.999678, 0.1, 1, -0.00365644, 0.00279155, 0.0388194, 0.999236, 0.133333, 1, -0.00418664, 0.00310768, 0.0446059, 0.998991, 0.166667, 1, -0.00370536, 0.00243111, 0.0391582, 0.999223, 0.2, 1, -0.00244722, 0.00117099, 0.0255389, 0.99967, 0.233333, 1, -0.000853099, 0.000342388, 0.00885393, 0.99996, 0.266667, 1, 0.000853101, 0.000342389, -0.00885393, 0.99996, 0.3, 1, 0.00244722, 0.00117099, -0.0255389, 0.99967, 0.333333, 1, 0.00370536, 0.00243112, -0.0391581, 0.999223, 0.366667, 1, 0.00418664, 0.00310769, -0.0446059, 0.998991, 0.4, 1, 0.00365644, 0.00279155, -0.0388193, 0.999236, 0.433333, 1, 0.00239314, 0.00183684, -0.0252005, 0.999678, 0.466667, 1, 0.000918828, 0.00071193, -0.00953498, 0.999954, 0.5, 1, 0, 0, 0, 1)
-tracks/3/type = "position_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Unit_ATK")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.0333333, 1, -0.0082963, 0.049166, 0, 0.0666667, 1, -0.0219259, 0.129939, 0, 0.1, 1, -0.0337778, 0.200176, 0, 0.133333, 1, -0.0388148, 0.224759, 0, 0.166667, 1, -0.0340741, 0.175593, 0, 0.2, 1, -0.0222222, 0.0842846, 0, 0.233333, 1, -0.0077037, 0.024583, 0, 0.266667, 1, 0.00770371, 0.024583, 0, 0.3, 1, 0.0222222, 0.0842847, 0, 0.333333, 1, 0.0340741, 0.175593, 0, 0.366667, 1, 0.0388148, 0.224759, 0, 0.4, 1, 0.0337778, 0.200176, 0, 0.433333, 1, 0.0219259, 0.129939, 0, 0.466667, 1, 0.0082963, 0.049166, 0, 0.5, 1, 0, 0, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.000918828, 0.000711929, 0.00953499, 0.999954, 0.0666667, 1, -0.00239314, 0.00183684, 0.0252005, 0.999678, 0.1, 1, -0.00365644, 0.00279155, 0.0388194, 0.999236, 0.133333, 1, -0.00418664, 0.00310768, 0.0446059, 0.998991, 0.166667, 1, -0.00370536, 0.00243111, 0.0391582, 0.999223, 0.2, 1, -0.00244722, 0.00117099, 0.0255389, 0.99967, 0.233333, 1, -0.000853099, 0.000342388, 0.00885393, 0.99996, 0.266667, 1, 0.000853101, 0.000342389, -0.00885393, 0.99996, 0.3, 1, 0.00244722, 0.00117099, -0.0255389, 0.99967, 0.333333, 1, 0.00370536, 0.00243112, -0.0391581, 0.999223, 0.366667, 1, 0.00418664, 0.00310769, -0.0446059, 0.998991, 0.4, 1, 0.00365644, 0.00279155, -0.0388193, 0.999236, 0.433333, 1, 0.00239314, 0.00183684, -0.0252005, 0.999678, 0.466667, 1, 0.000918828, 0.00071193, -0.00953498, 0.999954, 0.5, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i385o"]
 _data = {
@@ -310,24 +297,26 @@ libraries = {
 &"typed_unit_anims_library": ExtResource("11_foxl8")
 }
 
-[node name="Unit_ATK" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Unit" type="Node3D" parent="."]
+script = ExtResource("12_siuja")
 
-[node name="body" type="MeshInstance3D" parent="Unit_ATK"]
+[node name="Unit_Pivot" type="Node3D" parent="Unit"]
+
+[node name="body" type="MeshInstance3D" parent="Unit/Unit_Pivot"]
 mesh = SubResource("ArrayMesh_ccfod")
 skeleton = NodePath("")
 
-[node name="hat_002" type="MeshInstance3D" parent="Unit_ATK"]
+[node name="hat_002" type="MeshInstance3D" parent="Unit/Unit_Pivot"]
 transform = Transform3D(1.10862, 0, 0, 0, 1.10862, 0, 0, 0, 1.10862, 0, 2.32749, 0)
 mesh = SubResource("ArrayMesh_j02ye")
 skeleton = NodePath("")
 
-[node name="Sword_001" type="MeshInstance3D" parent="Unit_ATK"]
-transform = Transform3D(0.200482, 0.0756411, -0.154487, -0.258203, 0.965845, 0.00344774, 0.94506, 0.247836, 0.0337144, 0.121645, 0.846028, -0.867504)
+[node name="Sword_001" type="MeshInstance3D" parent="Unit/Unit_Pivot"]
+transform = Transform3D(-0.229653, -0.972854, -0.00451438, -0.973273, 0.229535, 0.00116781, -0.000631651, 0.0294758, -0.158092, 0, 0.84045, -0.867504)
 mesh = SubResource("ArrayMesh_m8p06")
 skeleton = NodePath("")
 
-[node name="vest_002" type="MeshInstance3D" parent="Unit_ATK"]
+[node name="vest_002" type="MeshInstance3D" parent="Unit/Unit_Pivot"]
 transform = Transform3D(1.16772, 0, 0, 0, 1.16772, 0, 0, 0, 1.16772, 0, -0.154044, 0)
 mesh = SubResource("ArrayMesh_ygdat")
 skeleton = NodePath("")

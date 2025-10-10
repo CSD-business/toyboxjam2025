@@ -73,7 +73,6 @@ func locomote(delta):
 	if not parent.stats.Unit_Type == "Tower":
 		$"../../Arrow".look_at(parent.position + parent.velocity)
 		$"../../Arrow".rotation = Vector3(0, $"../../Arrow".rotation.y, 0)
-	
 	#Update unit range if target is a Tower.
 	if target.stats.Unit_Type == "Tower":
 		nav_agent.target_desired_distance = parent.stats.Unit_Range * 1.5

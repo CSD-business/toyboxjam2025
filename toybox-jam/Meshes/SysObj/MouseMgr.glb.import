@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b13527bvgkgpc"
-path="res://.godot/imported/MouseMgr.glb-c409c4dca417c4b39c21167ec7e32462.scn"
+valid=false
 
 [deps]
 
 source_file="res://Meshes/SysObj/MouseMgr.glb"
-dest_files=["res://.godot/imported/MouseMgr.glb-c409c4dca417c4b39c21167ec7e32462.scn"]
 
 [params]
 
