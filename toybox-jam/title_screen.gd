@@ -15,7 +15,10 @@ func _on_back_pressed():
 
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	move_thing($Environment/CreditsCam)
+	$"Control/Main Buttons".hide()
+	$Control/Title.hide()
+	$Control/BackFromTut.show()
 
 
 func _on_level_1_pressed():
@@ -53,6 +56,7 @@ func move_thing(goal : Node):
 
 func _on_back_from_tut_pressed():
 	move_thing($Environment/NormalCam)
+	await get_tree().create_timer(1).timeout
 	$Control/BackFromTut.hide()
 	$"Control/Main Buttons".show()
 	$Control/Title.show()

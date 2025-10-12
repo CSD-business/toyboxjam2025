@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dh4unpbq20x6v"]
+[gd_scene load_steps=25 format=3 uid="uid://dh4unpbq20x6v"]
 
 [ext_resource type="Script" uid="uid://s8oecfv7do" path="res://title_screen.gd" id="1_12m1t"]
 [ext_resource type="Texture2D" uid="uid://dhyyw3iktb53n" path="res://UI/MatTex/MenuImg0_di.png" id="2_6vd4x"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="12_o1e67"]
 [ext_resource type="PackedScene" uid="uid://bd4ekrd38fjpm" path="res://Meshes/Fort/fortenemy.glb" id="13_ycay6"]
 [ext_resource type="Texture2D" uid="uid://bq7i5jo7hm3xv" path="res://Textures/scannedtutorial.JPG" id="14_ycay6"]
+[ext_resource type="Texture2D" uid="uid://d0pk4bctj71yp" path="res://Textures/scannedcredits.JPG" id="15_k1y01"]
 [ext_resource type="PackedScene" uid="uid://ctwmlmwo1gusn" path="res://Scenes/Units/UnitTowE.tscn" id="15_x2pfe"]
 [ext_resource type="PackedScene" uid="uid://ci113yerpol0s" path="res://Scenes/Units/UnitRngE.tscn" id="16_k1y01"]
 [ext_resource type="PackedScene" uid="uid://3dfva1u2jmcj" path="res://Scenes/Units/UnitDefA.tscn" id="17_4blwa"]
@@ -39,6 +40,9 @@ albedo_texture = ExtResource("14_ycay6")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_07cxn"]
 size = Vector2(9, 11)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4blwa"]
+albedo_texture = ExtResource("15_k1y01")
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -426,6 +430,9 @@ transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -
 [node name="TutorialCam" type="Marker3D" parent="Environment"]
 transform = Transform3D(0.837385, 0.546614, 2.38932e-08, 0, -4.37114e-08, 1, 0.546614, -0.837385, -3.66033e-08, -14.9981, 8.66123, -11.7299)
 
+[node name="CreditsCam" type="Marker3D" parent="Environment"]
+transform = Transform3D(0.746638, -0.665231, -2.90781e-08, 0, -4.37114e-08, 1, -0.665231, -0.746638, -3.26366e-08, 7.77618, 7.23032, -10.6508)
+
 [node name="Camera3D" type="Camera3D" parent="Environment"]
 transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -0.66523, -0.0793408, 0.742411, -2.29306, 3.33301, 0.197776)
 fov = 80.0
@@ -448,6 +455,10 @@ mesh = ExtResource("8_w5sh6")
 transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, -5.51342, 1.79202, -8.74851)
 mesh = ExtResource("8_w5sh6")
 
+[node name="BlocksCube004" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(3.20319e-08, 0.732804, -0.68044, 1, -4.37114e-08, 0, -2.9743e-08, -0.68044, -0.732804, 2.70738, 1.79202, -8.53043)
+mesh = ExtResource("8_w5sh6")
+
 [node name="BlocksCube003" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98925, 1.79202, -5.76899)
 mesh = ExtResource("8_w5sh6")
@@ -459,6 +470,16 @@ skeleton = NodePath("../..")
 
 [node name="BlocksCube007" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.406364, 0.208471, 0.889611, -0.209181, 0.968992, -0.131521, -0.889445, -0.132645, 0.437372, -2.82795, 2.16459, -8.38417)
+mesh = ExtResource("9_o1e67")
+skeleton = NodePath("../..")
+
+[node name="BlocksCube008" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.871864, 0, 0.489748, 0, 1, 0, -0.489748, 0, 0.871864, 5.23518, 2.16459, -4.77813)
+mesh = ExtResource("9_o1e67")
+skeleton = NodePath("../..")
+
+[node name="BlocksCube009" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(-2.65668e-08, 0.607778, 0.794107, -1, -4.37114e-08, 0, 3.47115e-08, -0.794107, 0.607778, 3.97507, 2.16459, -6.74145)
 mesh = ExtResource("9_o1e67")
 skeleton = NodePath("../..")
 
@@ -477,9 +498,15 @@ script = null
 [node name="fortenemy" parent="Environment" instance=ExtResource("13_ycay6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586267, 1.19074, -11.5649)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+[node name="Tutorial" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.889408, 0, -0.457113, 0, 1, 0, 0.457113, 0, 0.889408, -13.984, 1.2089, -11.2551)
 material_override = SubResource("StandardMaterial3D_bsy20")
+mesh = SubResource("PlaneMesh_07cxn")
+skeleton = NodePath("../Camera3D")
+
+[node name="Credits" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.799799, 0, 0.600267, 0, 1, 0, -0.600267, 0, 0.799799, 8.01668, 1.2089, -10.3456)
+material_override = SubResource("StandardMaterial3D_4blwa")
 mesh = SubResource("PlaneMesh_07cxn")
 skeleton = NodePath("../Camera3D")
 

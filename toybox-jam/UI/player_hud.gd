@@ -45,6 +45,7 @@ func polling_function():
 
 
 func _on_menu_pressed():
+	GlobalVars.GameIsGoing = false
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 

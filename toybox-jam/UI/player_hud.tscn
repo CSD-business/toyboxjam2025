@@ -204,5 +204,36 @@ theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
 text = "Restart"
 
+[node name="Menu2" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 15.0
+offset_right = 160.0
+offset_bottom = 79.0
+texture_normal = ExtResource("8_4g3o5")
+texture_pressed = ExtResource("9_b0gj7")
+texture_hover = ExtResource("10_sd73d")
+texture_disabled = ExtResource("11_c8efc")
+
+[node name="Label" type="Label" parent="Menu2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -15.0
+offset_right = 27.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_miyt4")
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+text = "Abort"
+
 [connection signal="pressed" from="HeadsUpUI/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="HeadsUpUI/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu2" to="." method="_on_menu_pressed"]

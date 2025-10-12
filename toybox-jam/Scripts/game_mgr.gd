@@ -22,7 +22,6 @@ func _ready():
 	GlobalVars.GameIsGoing = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(GlobalVars.EnemyTowers)
 	if GlobalVars.GameIsGoing:
 		GlobalVars.RoundPlaytime += delta
 		if GlobalVars.FriendlyTowers == 0:
