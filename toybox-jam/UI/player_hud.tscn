@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxe2i3bl3ygda"]
+[gd_scene load_steps=20 format=3 uid="uid://cxe2i3bl3ygda"]
 
 [ext_resource type="Script" uid="uid://doovi4xo3a52e" path="res://UI/player_hud.gd" id="1_5o0p8"]
 [ext_resource type="PackedScene" uid="uid://42gfe5fwvv5l" path="res://UI/unit_btn.tscn" id="1_pi8qp"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://iq2n0wgccksx" path="res://UI/MatTex/MenuImg2_di.png" id="9_b0gj7"]
 [ext_resource type="Texture2D" uid="uid://c2t5sd3pe1fio" path="res://UI/MatTex/MenuImg1_di.png" id="10_sd73d"]
 [ext_resource type="Texture2D" uid="uid://d2wnxu5afusyv" path="res://UI/MatTex/MenuImg3_di.png" id="11_c8efc"]
+[ext_resource type="AudioStream" uid="uid://c18ud1qvx20ve" path="res://Audio/uiBtnHud_sw.ogg" id="12_b0gj7"]
+[ext_resource type="AudioStream" uid="uid://bmugno7a5b2rw" path="res://Audio/uiBtnBig_sw.ogg" id="13_sd73d"]
+[ext_resource type="AudioStream" uid="uid://dj2bgqne7siot" path="res://Audio/ancReady_sw.ogg" id="14_lf3a0"]
+[ext_resource type="AudioStream" uid="uid://fcpft8sdpskt" path="res://Audio/ancGo_sw.ogg" id="15_4gc4x"]
+[ext_resource type="AudioStream" uid="uid://dud2b3k2sapx7" path="res://Audio/ancWin_sw.ogg" id="16_c8ytf"]
+[ext_resource type="AudioStream" uid="uid://djbr641jldrrj" path="res://Audio/ancLose_sw.ogg" id="17_oiiro"]
+[ext_resource type="AudioStream" uid="uid://dcw5jq1ar40ue" path="res://Audio/roundWin_sw.ogg" id="18_vnjyw"]
+[ext_resource type="AudioStream" uid="uid://cnhs187sy6vqk" path="res://Audio/roundLose_sw.ogg" id="19_vyyht"]
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -233,6 +241,30 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
 text = "Abort"
+
+[node name="MenuButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_b0gj7")
+
+[node name="UIButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_sd73d")
+
+[node name="Ready" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_lf3a0")
+
+[node name="Go" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4gc4x")
+
+[node name="SuccessMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_c8ytf")
+
+[node name="FailureMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_oiiro")
+
+[node name="SuccessAnn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_vnjyw")
+
+[node name="FailureAnn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_vyyht")
 
 [connection signal="pressed" from="HeadsUpUI/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="HeadsUpUI/HBoxContainer/Restart" to="." method="_on_restart_pressed"]

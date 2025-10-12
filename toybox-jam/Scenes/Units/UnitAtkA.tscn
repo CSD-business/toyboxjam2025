@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dnsry4a058utk"]
+[gd_scene load_steps=43 format=4 uid="uid://dnsry4a058utk"]
 
 [ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_xmlo0"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_qo3cf"]
@@ -13,10 +13,33 @@
 [ext_resource type="AnimationLibrary" uid="uid://c8to04f24oi0v" path="res://Meshes/Typed Units/typed_unit_anims_library.res" id="11_foxl8"]
 [ext_resource type="Script" uid="uid://brjq0d31b66wu" path="res://Scripts/unit_rotation.gd" id="12_siuja"]
 [ext_resource type="Texture2D" uid="uid://d264mqurmb4h0" path="res://Meshes/Typed Units/unit_ATKDEFRNG_f72df235a0f6df5777fc1189bb759758.jpg" id="12_wfle8"]
+[ext_resource type="AudioStream" uid="uid://ixd2ipnsy8sy" path="res://Audio/UnitVoice/f_war_cover_me.ogg" id="14_j02ye"]
+[ext_resource type="AudioStream" uid="uid://dgjwqnhwko4n3" path="res://Audio/UnitVoice/f_war_go_go_go.ogg" id="15_m8p06"]
+[ext_resource type="AudioStream" uid="uid://cedylli8t6ebb" path="res://Audio/UnitVoice/m_war_cover_me.ogg" id="16_ygdat"]
+[ext_resource type="AudioStream" uid="uid://cq48i8jyvajwc" path="res://Audio/UnitVoice/m_war_go_go_go.ogg" id="17_8p3t1"]
+[ext_resource type="AudioStream" uid="uid://3vaeqkuc63vx" path="res://Audio/unitMake_sw.ogg" id="18_8p3t1"]
+[ext_resource type="AudioStream" uid="uid://cnhb1012flh1w" path="res://Audio/UnitVoice/f_war_target_destroyed.ogg" id="19_gdyw8"]
+[ext_resource type="AudioStream" uid="uid://cj6yjg2po4bc3" path="res://Audio/UnitVoice/m_war_target_destroyed.ogg" id="20_0p7mi"]
+[ext_resource type="AudioStream" uid="uid://b0ink10i6fn58" path="res://Audio/unitHitAtk_sw.ogg" id="21_gdyw8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 3.0
 radius = 0.6
+
+[sub_resource type="Animation" id="Animation_siuja"]
+resource_name = "Flicker"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Unit_Pivot/body:surface_material_override/0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_i385o"]
 resource_name = "pawn_attackreal"
@@ -70,6 +93,7 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.000918828,
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i385o"]
 _data = {
+&"Flicker": SubResource("Animation_siuja"),
 &"Pawn_attack": ExtResource("9_pg8jt"),
 &"Pawn_locomote": ExtResource("10_siuja"),
 &"pawn_attackreal": SubResource("Animation_i385o"),
@@ -81,6 +105,7 @@ resource_name = "wood"
 cull_mode = 2
 albedo_texture = ExtResource("12_wfle8")
 roughness = 0.5
+emission = Color(1, 1, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sjwna"]
 _surfaces = [{
@@ -246,6 +271,38 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y3w3m")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gdyw8"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("14_j02ye")
+stream_1/stream = ExtResource("15_m8p06")
+stream_2/stream = ExtResource("16_ygdat")
+stream_3/stream = ExtResource("17_8p3t1")
+
+[sub_resource type="SphereMesh" id="SphereMesh_siuja"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="Curve" id="Curve_foxl8"]
+_data = [Vector2(0.071066, 1), 0.0, 0.0, 0, 0, Vector2(0.319797, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_83es4"]
+random_pitch = 1.75
+streams_count = 2
+stream_0/stream = ExtResource("19_gdyw8")
+stream_1/stream = ExtResource("20_0p7mi")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_48552"]
+random_pitch = 1.4
+streams_count = 1
+stream_0/stream = ExtResource("18_8p3t1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0p7mi"]
+playback_mode = 1
+streams_count = 1
+stream_0/stream = ExtResource("21_gdyw8")
+
 [node name="UnitAtkA" type="CharacterBody3D"]
 script = ExtResource("1_xmlo0")
 
@@ -323,3 +380,59 @@ skeleton = NodePath("")
 transform = Transform3D(1.16772, 0, 0, 0, 1.16772, 0, 0, 0, 1.16772, 0, -0.154044, 0)
 mesh = SubResource("ArrayMesh_ygdat")
 skeleton = NodePath("")
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_gdyw8")
+volume_db = -2.0
+pitch_scale = 1.75
+
+[node name="SpawnParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_siuja")
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_foxl8")
+
+[node name="DeathParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_siuja")
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_foxl8")
+
+[node name="SpawnSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_8p3t1")
+volume_db = -2.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_83es4")
+volume_db = -2.0
+pitch_scale = 1.1
+
+[node name="DeathSound2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_48552")
+volume_db = -2.0
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_0p7mi")
+volume_db = -4.0
+
+[connection signal="finished" from="DeathParticles" to="State Machine/Death" method="_on_death_particles_finished"]

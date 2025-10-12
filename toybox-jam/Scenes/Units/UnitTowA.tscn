@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bysogr38r2btk"]
+[gd_scene load_steps=17 format=3 uid="uid://bysogr38r2btk"]
 
 [ext_resource type="Script" uid="uid://cr5mm76x2pu2m" path="res://Scripts/unit.gd" id="1_y5vmw"]
 [ext_resource type="Script" uid="uid://bcv8wu6ev1x0k" path="res://Scripts/UnitStats.gd" id="2_m0ihm"]
@@ -7,10 +7,36 @@
 [ext_resource type="Script" uid="uid://bif5jq3rwrq75" path="res://Scripts/Unit States/attack_state.gd" id="5_py7kj"]
 [ext_resource type="Script" uid="uid://3i3uursrcdts" path="res://Scripts/Unit States/death_state.gd" id="6_kw50o"]
 [ext_resource type="ArrayMesh" uid="uid://0yfj4u10g270" path="res://Meshes/Fort/fortenemy_fortunit.res" id="7_r51lo"]
+[ext_resource type="AudioStream" uid="uid://3vaeqkuc63vx" path="res://Audio/unitMake_sw.ogg" id="8_njrpp"]
+[ext_resource type="AudioStream" uid="uid://cnhb1012flh1w" path="res://Audio/UnitVoice/f_war_target_destroyed.ogg" id="9_py7kj"]
+[ext_resource type="AudioStream" uid="uid://cj6yjg2po4bc3" path="res://Audio/UnitVoice/m_war_target_destroyed.ogg" id="10_kw50o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n6qls"]
 height = 4.0
 radius = 1.25
+
+[sub_resource type="Curve" id="Curve_y5vmw"]
+_data = [Vector2(0.071066, 1), 0.0, 0.0, 0, 0, Vector2(0.319797, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_y5vmw"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="Curve" id="Curve_m0ihm"]
+_data = [Vector2(0.071066, 1), 0.0, 0.0, 0, 0, Vector2(0.319797, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r51lo"]
+random_pitch = 1.75
+streams_count = 2
+stream_0/stream = ExtResource("9_py7kj")
+stream_1/stream = ExtResource("10_kw50o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h3f6a"]
+random_pitch = 1.4
+streams_count = 1
+stream_0/stream = ExtResource("8_njrpp")
 
 [node name="UnitTowA" type="CharacterBody3D"]
 script = ExtResource("1_y5vmw")
@@ -49,5 +75,49 @@ shape = SubResource("CylinderShape3D_n6qls")
 mesh = ExtResource("7_r51lo")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="SpawnParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, 0)
+emitting = false
+amount = 1
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_y5vmw")
+
+[node name="DeathParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_y5vmw")
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_amount_curve = SubResource("Curve_m0ihm")
+
+[node name="SpawnSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_njrpp")
+volume_db = -2.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_r51lo")
+volume_db = -2.0
+pitch_scale = 1.1
+
+[node name="DeathSound2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_h3f6a")
+volume_db = -2.0
 
 [connection signal="timeout" from="State Machine/Attack/Timer" to="State Machine/Attack" method="_on_timer_timeout"]

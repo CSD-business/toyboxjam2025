@@ -8,6 +8,7 @@ var target
 func enter() -> void:
 	super()
 	target = get_parent().aggro
+	await get_tree().create_timer(parent.stats.Unit_Animation_Attack_Delay).timeout #estimate for the contact
 	attack()
 	#Stop moving
 	parent.velocity.x = 0
@@ -16,9 +17,9 @@ func enter() -> void:
 
 func attack() -> void:
 	if is_instance_valid(target):
-		await get_tree().create_timer(parent.stats.Unit_Animation_Attack_Delay).timeout #estimate for the contact
 		if is_instance_valid(target):
 			target.get_child(1).take_damage(parent.stats)
+			$"../../AttackSound".play()
 			#get child is (1) because state machine is the 2nd child of units
 		await get_tree().create_timer(parent.stats.Unit_Attack_Speed).timeout
 		attack()

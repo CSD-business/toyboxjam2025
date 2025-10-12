@@ -30,6 +30,7 @@ func _process(delta):
 			stop_round(1)
 		
 func stop_round(result : int):
+	fade_out_music()
 	match result:
 		0:
 			print("Player Loss")
@@ -37,3 +38,7 @@ func stop_round(result : int):
 		1:
 			print("Player Win")
 			GlobalVars.GameIsGoing = false
+func fade_out_music():
+	var tween := create_tween()
+	tween.tween_property($"../GameMusic", "volume_db", -80, 8)
+	print($"../GameMusic".volume_db)

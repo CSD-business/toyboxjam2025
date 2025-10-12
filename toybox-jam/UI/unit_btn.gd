@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 func _pressed() -> void:
 	GlobalVars.Pieces.AllyUnitId = UnitId
 	GlobalVars.CurCost = Cost
+	$"../../UIButtonSFX".play()
 
 func _on_mouse_entered() -> void:
 	GlobalVars.OnUI = true

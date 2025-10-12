@@ -7,6 +7,8 @@ var stats = $"../Stats Component"
 var starting_state: State
 var current_state: State
 
+@onready var MatFlicker: Material = preload("res://Materials/flicker.tres")
+
 var mult : float
 
 var aggro = null
@@ -41,6 +43,8 @@ func process_frame(delta: float) -> void:
 		change_state(new_state)
 
 func take_damage(StatsRef : Node):
+	flicker()
+	
 	var d = float(StatsRef.Unit_Strength - stats.Unit_Defense)
 	find_type_adv(StatsRef.Unit_Type)
 	d = d * mult
@@ -48,6 +52,19 @@ func take_damage(StatsRef : Node):
 	if (stats.Unit_Cur_Health <= 0):
 		change_state($"Death")
 
+func flicker():
+	if stats.Unit_Type != "Tower":
+		$"../Unit/Unit_Pivot/body".material_override = MatFlicker
+		$"../Unit/Unit_Pivot/hat_002".material_override = MatFlicker
+		$"../Unit/Unit_Pivot/vest_002".material_override = MatFlicker
+		await get_tree().create_timer(.1).timeout
+		$"../Unit/Unit_Pivot/body".material_override = null
+		$"../Unit/Unit_Pivot/hat_002".material_override = null
+		$"../Unit/Unit_Pivot/vest_002".material_override = null
+	else:
+		$"../Mesh".material_override = MatFlicker
+		await get_tree().create_timer(.1).timeout
+		$"../Mesh".material_override = null
 func find_type_adv(type : String):
 	var ourType = stats.Unit_Type
 	match type:

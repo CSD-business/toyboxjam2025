@@ -11,6 +11,9 @@ var state_machine = $"State Machine"
 var stats = $"Stats Component"
 
 @onready var nav_agent: NavigationAgent3D = $NavAgent3D
+@onready var sparticles: CPUParticles3D = $SpawnParticles
+@onready var dparticles: CPUParticles3D = $DeathParticles
+@onready var spawnaudio: AudioStreamPlayer = $SpawnSound
 
 var unit_ready : bool
 
@@ -19,6 +22,13 @@ func _ready() -> void:
 	nav_agent.path_desired_distance = 0.5
 	nav_agent.target_desired_distance = stats.Unit_Range
 	actor_setup.call_deferred()
+	sparticles.emitting = true
+	
+	if $"Stats Component".Unit_Type != "Tower":
+		if randi_range(1,2) == 1:
+			$SpawnSound.play()
+			print("talking")
+		$SpawnSound2.play()
 
 func actor_setup():
 	#Wait for first physics frame so NavServer can sync.

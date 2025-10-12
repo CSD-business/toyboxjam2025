@@ -4,11 +4,13 @@ func _ready():
 	check_level_avaliablilty()
 
 func _on_level_select_pressed():
+	$MenuButtonSFX.play()
 	$"Control/Main Buttons".hide()
 	$Control/Levels.show()
 
 
 func _on_back_pressed():
+	$MenuButtonSFX.play()
 	$"Control/Main Buttons".show()
 	$Control/Levels.hide()
 
@@ -16,6 +18,7 @@ func _on_back_pressed():
 
 func _on_credits_pressed():
 	move_thing($Environment/CreditsCam)
+	$MenuButtonSFX.play()
 	$"Control/Main Buttons".hide()
 	$Control/Title.hide()
 	$Control/BackFromTut.show()
@@ -23,26 +26,27 @@ func _on_credits_pressed():
 
 func _on_level_1_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
-
+	$MenuButtonSFX.play()
 
 func _on_level_2_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_2.tscn")
-
+	$MenuButtonSFX.play()
 
 func _on_level_3_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_3.tscn")
-
+	$MenuButtonSFX.play()
 
 func _on_level_4_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_4.tscn")
-
+	$MenuButtonSFX.play()
 
 func _on_level_5_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_5.tscn")
-
+	$MenuButtonSFX.play()
 
 func _on_instructions_pressed():
 	move_thing($Environment/TutorialCam)
+	$MenuButtonSFX.play()
 	$"Control/Main Buttons".hide()
 	$Control/Title.hide()
 	$Control/BackFromTut.show()
@@ -56,6 +60,7 @@ func move_thing(goal : Node):
 
 func _on_back_from_tut_pressed():
 	move_thing($Environment/NormalCam)
+	$MenuButtonSFX.play()
 	await get_tree().create_timer(1).timeout
 	$Control/BackFromTut.hide()
 	$"Control/Main Buttons".show()
@@ -73,6 +78,7 @@ func check_level_avaliablilty():
 
 func _input(event):
 	if Input.is_key_pressed(KEY_U):
+		$MenuButtonSFX.play()
 		$Control/Levels/VBoxContainer/HBoxContainer/Level2.disabled = false
 		$Control/Levels/VBoxContainer/HBoxContainer/Level3.disabled = false
 		$Control/Levels/VBoxContainer/HBoxContainer/Level4.disabled = false
