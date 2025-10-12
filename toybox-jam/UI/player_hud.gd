@@ -45,6 +45,8 @@ func end_round(outcome):
 						GlobalVars.CanDoLVL4 = true
 					4:
 						GlobalVars.CanDoLVL5 = true
+					5: 
+						GlobalVars.Him = true
 				#show stuff
 				$HeadsUpUI/ResultW.show()
 				$HeadsUpUI/WinTimer.show()

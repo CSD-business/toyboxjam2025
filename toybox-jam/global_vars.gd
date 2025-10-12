@@ -21,3 +21,4 @@ var CanDoLVL2: bool = false
 var CanDoLVL3: bool = false
 var CanDoLVL4: bool = false
 var CanDoLVL5: bool = false
+var Him: bool = false

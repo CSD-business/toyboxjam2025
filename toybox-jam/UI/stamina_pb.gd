@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-var StaminaCharge = 0.5
+var StaminaCharge = 0.6
 
 func _ready():
 	GlobalVars.Stamina = 0

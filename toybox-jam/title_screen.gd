@@ -75,7 +75,8 @@ func check_level_avaliablilty():
 		$Control/Levels/VBoxContainer/HBoxContainer/Level4.disabled = false
 	if GlobalVars.CanDoLVL5:
 		$Control/Levels/VBoxContainer/HBoxContainer/Level5.disabled = false
-
+	if GlobalVars.Him:
+		$DecorFrameMesh.show()
 func _input(event):
 	if Input.is_key_pressed(KEY_U):
 		$MenuButtonSFX.play()
