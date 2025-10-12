@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr8c7kbco2hfl"
-path.s3tc="res://.godot/imported/AllyRegion_di.png-3c4e25606f57080bb06b8c9c59625914.s3tc.ctex"
+path.s3tc="res://.godot/imported/AllyRegion_di.png-60811b7907ca9c6944c516674d6ba60e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/AllyRegion_di.png"
-dest_files=["res://.godot/imported/AllyRegion_di.png-3c4e25606f57080bb06b8c9c59625914.s3tc.ctex"]
+source_file="res://Textures/AllyRegion_di.png"
+dest_files=["res://.godot/imported/AllyRegion_di.png-60811b7907ca9c6944c516674d6ba60e.s3tc.ctex"]
 
 [params]
 

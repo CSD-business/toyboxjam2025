@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk0phvnupuqdp"
-path.s3tc="res://.godot/imported/checker-1-1.png-16f04e4b5788a019f1da9c422764c45d.s3tc.ctex"
+path.s3tc="res://.godot/imported/checker-1-1.png-c1a33fdb992093aaab39610d076beec4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/checker-1-1.png"
-dest_files=["res://.godot/imported/checker-1-1.png-16f04e4b5788a019f1da9c422764c45d.s3tc.ctex"]
+source_file="res://Textures/checker-1-1.png"
+dest_files=["res://.godot/imported/checker-1-1.png-c1a33fdb992093aaab39610d076beec4.s3tc.ctex"]
 
 [params]
 
