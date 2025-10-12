@@ -4,6 +4,7 @@ extends Node3D
 @export var ATK_UNIT : PackedScene
 @export var DEF_UNIT : PackedScene
 @export var RNG_UNIT : PackedScene
+@onready var Markers = $"../Markers"
 
 var dictionary_ref
 
@@ -12,7 +13,7 @@ signal SpawnEnemyUnit(unit, location)
 signal start_spawning
 func _ready():
 	determine_enemy_ai()
-	for marker in get_node("../Markers").get_children():
+	for marker in Markers.get_children():
 		spawnlocs.append(marker.position) 
 		print(spawnlocs)
 		print("Found Marker: " + marker.name)
@@ -58,6 +59,13 @@ func parse_dictionary_ref(ref):
 						SpawnEnemyUnit.emit(spawnlocs[2], DEF_UNIT)
 					if instruction.contains("RNG"):
 						SpawnEnemyUnit.emit(spawnlocs[2], RNG_UNIT)
+				if instruction.contains("M4"): 
+					if instruction.contains("ATK"):
+						SpawnEnemyUnit.emit(spawnlocs[3], ATK_UNIT)
+					if instruction.contains("DEF"):
+						SpawnEnemyUnit.emit(spawnlocs[3], DEF_UNIT)
+					if instruction.contains("RNG"):
+						SpawnEnemyUnit.emit(spawnlocs[3], RNG_UNIT)
 				if instruction.contains("WAIT"):
 					var waittime = int(instruction.replace("WAIT", ""))
 					await get_tree().create_timer(waittime).timeout

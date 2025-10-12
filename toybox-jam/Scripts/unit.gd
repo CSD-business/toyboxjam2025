@@ -29,9 +29,9 @@ func actor_setup():
 	unit_ready = true
 
 func _physics_process(delta: float) -> void:
-	if unit_ready:
+	if unit_ready and GlobalVars.GameIsGoing:
 		state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
-	if unit_ready:
+	if unit_ready and GlobalVars.GameIsGoing:
 		state_machine.process_frame(delta)

@@ -1,5 +1,4 @@
 extends Control
-@export var This_Level = PackedScene
 @export var level_unlock_key : int
 func _process(delta):
 	polling_function()
@@ -35,6 +34,9 @@ func polling_function():
 		if GlobalVars.FriendlyTowers == 0:
 			$HeadsUpUI/ResultL.show()
 			$HeadsUpUI/HBoxContainer.show()
+			await get_tree().create_timer(1).timeout
+			$HeadsUpUI/HBoxContainer/Menu.disabled = false
+			$HeadsUpUI/HBoxContainer/Restart.disabled = false
 	else:
 		$HeadsUpUI/ReadyText.text = "Go!"
 		await get_tree().create_timer(1).timeout
