@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlha7qtjnqu5p"]
+[gd_scene load_steps=25 format=3 uid="uid://dlha7qtjnqu5p"]
 
 [ext_resource type="PackedScene" uid="uid://cxe2i3bl3ygda" path="res://UI/player_hud.tscn" id="1_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://608dv7f546x5" path="res://Scenes/mouse_mgr.tscn" id="2_5buja"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="17_ts3wb"]
 [ext_resource type="Script" uid="uid://dq16iy4qs60bi" path="res://Scripts/game_mgr.gd" id="18_5buja"]
 [ext_resource type="AudioStream" uid="uid://d1tqdy3j20yq1" path="res://Audio/Game_mw.ogg" id="19_wyygt"]
+[ext_resource type="ArrayMesh" uid="uid://cspx1n5qwtglb" path="res://Meshes/Decor/DecorJacks_mesh.res" id="20_u87on"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8i23i"]
 size = Vector3(40, 0, 80)
@@ -43,7 +44,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.464624, -0.512195, 0.7
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.62443e-08, -0.829174, 0.55899, 2.44342e-08, 0.55899, 0.829174, -1, 4.37113e-08, 5.32907e-15, 18.2818, 18.6376, 9.98862)
+transform = Transform3D(-7.99557e-08, -0.829174, 0.55899, 2.44342e-08, 0.55899, 0.829174, -1, 7.99557e-08, -2.44342e-08, 17.2818, 18.1376, 9.98862)
 fov = 50.0
 size = 12.0
 
@@ -143,6 +144,54 @@ mesh = ExtResource("15_s5367")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.92879, 1.99929, 16.1913)
 mesh = ExtResource("16_blyvk")
 
+[node name="BlocksCube007" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.86395, 0, 0.503578, 0, 1, 0, -0.503578, 0, 0.86395, -4.72554, 2.07645, 22.4685)
+mesh = ExtResource("11_ixm8h")
+
+[node name="BlocksCube008" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.758145, 0, -0.652085, 0, 1, 0, 0.652085, 0, -0.758145, 2.3252, 1.99929, 23.6772)
+mesh = ExtResource("12_xk8vt")
+
+[node name="BlocksCube009" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.134556, 0, -0.990906, 0, 1, 0, 0.990906, 0, 0.134556, 1.14207, 1.99929, 25.939)
+mesh = ExtResource("13_umcau")
+
+[node name="BlocksCube010" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 0.373503, 3.93571, 24.5779)
+mesh = ExtResource("14_ud172")
+
+[node name="BlocksCube011" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -0.840637, 1.99929, 23.8763)
+mesh = ExtResource("15_s5367")
+
+[node name="BlocksCube012" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.258819, -0.965926, -4.2222e-08, 0, -4.37114e-08, 1, -0.965926, -0.258819, -1.13133e-08, 7.2508, 1.99929, 25.3352)
+mesh = ExtResource("16_blyvk")
+
+[node name="BlocksCube013" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.86395, 0, -0.503578, 0, 1, 0, 0.503578, 0, -0.86395, 8.56734, 2.07645, -2.34382)
+mesh = ExtResource("11_ixm8h")
+
+[node name="BlocksCube014" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.758145, 0, 0.652085, 0, 1, 0, -0.652085, 0, 0.758145, 1.5166, 1.99929, -3.55247)
+mesh = ExtResource("12_xk8vt")
+
+[node name="BlocksCube015" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.134556, 0, 0.990906, 0, 1, 0, -0.990906, 0, -0.134556, 2.69973, 1.99929, -5.81432)
+mesh = ExtResource("13_umcau")
+
+[node name="BlocksCube016" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 3.4683, 3.93571, -4.45322)
+mesh = ExtResource("14_ud172")
+
+[node name="BlocksCube017" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 4.68244, 1.99929, -3.75158)
+mesh = ExtResource("15_s5367")
+
+[node name="BlocksCube018" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.258819, 0.965926, 4.2222e-08, -1.77636e-15, -4.37114e-08, 1, 0.965926, 0.258819, 1.13133e-08, -3.409, 1.99929, -5.2105)
+mesh = ExtResource("16_blyvk")
+
 [node name="AllyRegion" parent="." instance=ExtResource("17_ts3wb")]
 transform = Transform3D(0.547922, 0, 0, 0, 1, 0, 0, 0, 0.547922, 10, 0, 16)
 
@@ -156,6 +205,66 @@ script = ExtResource("18_5buja")
 stream = ExtResource("19_wyygt")
 volume_db = -16.0
 autoplay = true
+
+[node name="DecorJacksMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0.353553, 0.353553, -0.5, 0.612372, 0.612372, 0, -0.707107, 0.707107, -10, 1.7, 19.5)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.224144, 0.774519, -0.591506, -0.5, 0.612372, 0.612372, 0.836516, 0.158494, 0.524519, -11.5, 1.7, 13.5)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.224144, 0.774519, -0.591506, -0.5, 0.612372, 0.612372, 0.836516, 0.158494, 0.524519, -11.5, 1.7, 0.5)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.75, 0.0473672, -0.65974, -0.5, 0.612372, 0.612372, 0.433013, 0.789149, -0.435596, -8, 1.7, -1.5)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0.353553, 0.353553, -0.5, 0.612372, 0.612372, -1.49012e-08, -0.707107, 0.707107, -7, 1.7, 21.5)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.78552e-08, 0.707107, -0.707107, -0.5, 0.612372, 0.612372, 0.866025, 0.353553, 0.353553, -9.4, 1.7, -6.7)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh15" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.78552e-08, 0.707107, -0.707107, -0.5, 0.612372, 0.612372, 0.866025, 0.353553, 0.353553, -3.4, 1.7, -1.7)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.836516, -0.158494, -0.524519, -0.5, 0.612372, 0.612372, 0.224144, 0.774519, -0.591506, -3.4, 1.7, -8.2)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.836516, -0.158494, -0.524519, -0.5, 0.612372, 0.612372, 0.224144, 0.774519, -0.591506, 9.6, 1.7, -8.2)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.433013, -0.789149, 0.435596, -0.5, 0.612372, 0.612372, -0.75, 0.0473672, -0.65974, 11.6, 1.7, -4.7)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.53058e-08, 0.707107, -0.707107, -0.5, 0.612372, 0.612372, 0.866025, 0.353553, 0.353553, -11.4, 1.7, -3.7)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, -0.0473672, 0.65974, -0.5, 0.612372, 0.612372, -0.433013, -0.789149, 0.435596, 14.5068, 1.7, 25.0576)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, -0.0473672, 0.65974, -0.5, 0.612372, 0.612372, -0.433013, -0.789149, 0.435596, 6.00683, 1.7, 22.0576)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.612373, 0.75, -0.25, -0.5, 0.612372, 0.612372, 0.612372, -0.25, 0.75, 11.6691, 1.7, 22.1945)
+mesh = ExtResource("20_u87on")
+
+[node name="DecorJacksMesh13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.836516, 0.158494, 0.524519, -0.5, 0.612372, 0.612372, -0.224144, -0.774519, 0.591506, 10.4241, 1.7, 26.048)
+mesh = ExtResource("20_u87on")
 
 [connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dh4unpbq20x6v"]
+[gd_scene load_steps=28 format=3 uid="uid://dh4unpbq20x6v"]
 
 [ext_resource type="Script" uid="uid://s8oecfv7do" path="res://title_screen.gd" id="1_12m1t"]
 [ext_resource type="Texture2D" uid="uid://dhyyw3iktb53n" path="res://UI/MatTex/MenuImg0_di.png" id="2_6vd4x"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://3dfva1u2jmcj" path="res://Scenes/Units/UnitDefA.tscn" id="17_4blwa"]
 [ext_resource type="AudioStream" uid="uid://c18ud1qvx20ve" path="res://Audio/uiBtnHud_sw.ogg" id="19_4blwa"]
 [ext_resource type="AudioStream" uid="uid://bm7j1y2nq3nxx" path="res://Audio/Menu_mw.ogg" id="20_vqgqr"]
+[ext_resource type="ArrayMesh" uid="uid://dvtb3d1ee3ubp" path="res://Meshes/Decor/DecorFrame_mesh.res" id="21_pcucl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sqelc"]
 sky_top_color = Color(0.611765, 0.937255, 0.94902, 1)
@@ -427,16 +428,16 @@ text = "Back"
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="NormalCam" type="Marker3D" parent="Environment"]
-transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -0.66523, -0.0793408, 0.742411, -2.29306, 3.33301, 0.197776)
+transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -0.66523, -0.0793408, 0.742411, -1.79306, 3.33301, 0.697776)
 
 [node name="TutorialCam" type="Marker3D" parent="Environment"]
 transform = Transform3D(0.837385, 0.546614, 2.38932e-08, 0, -4.37114e-08, 1, 0.546614, -0.837385, -3.66033e-08, -14.9981, 8.66123, -11.7299)
 
 [node name="CreditsCam" type="Marker3D" parent="Environment"]
-transform = Transform3D(0.746638, -0.665231, -2.90781e-08, 0, -4.37114e-08, 1, -0.665231, -0.746638, -3.26366e-08, 7.77618, 7.23032, -10.6508)
+transform = Transform3D(0.746638, -0.665231, -2.90781e-08, 0, -4.37114e-08, 1, -0.665231, -0.746638, -3.26366e-08, 7.77618, 8.23032, -10.6508)
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -0.66523, -0.0793408, 0.742411, -2.29306, 3.33301, 0.197776)
+transform = Transform3D(0.746638, -0.0706901, 0.661464, 0, 0.994338, 0.106264, -0.66523, -0.0793408, 0.742411, -1.79306, 3.33301, 0.697776)
 fov = 80.0
 
 [node name="GridMap" type="GridMap" parent="Environment"]
@@ -486,7 +487,7 @@ mesh = ExtResource("9_o1e67")
 skeleton = NodePath("../..")
 
 [node name="UnitRngA" parent="Environment" instance=ExtResource("10_ycay6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26699, 0.991109, -0.0422482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26699, 0.991109, 0.957752)
 script = null
 
 [node name="UnitAtkA" parent="Environment" instance=ExtResource("11_bsy20")]
@@ -536,6 +537,11 @@ stream = ExtResource("20_vqgqr")
 volume_db = -12.0
 autoplay = true
 parameters/looping = true
+
+[node name="DecorFrameMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -9.5, 1, -1.5)
+visible = false
+mesh = ExtResource("21_pcucl")
 
 [connection signal="pressed" from="Control/Levels/VBoxContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Control/Levels/VBoxContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]

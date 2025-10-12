@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://50ukxb886e3s"]
+[gd_scene load_steps=22 format=3 uid="uid://50ukxb886e3s"]
 
 [ext_resource type="PackedScene" uid="uid://cxe2i3bl3ygda" path="res://UI/player_hud.tscn" id="1_a83bs"]
 [ext_resource type="Material" uid="uid://d2eeq2xd3ovxg" path="res://Materials/debug_mat.tres" id="1_dct37"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bysogr38r2btk" path="res://Scenes/Units/UnitTowA.tscn" id="11_n5gmk"]
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="12_osc7p"]
 [ext_resource type="Script" uid="uid://dq16iy4qs60bi" path="res://Scripts/game_mgr.gd" id="13_n5gmk"]
+[ext_resource type="ArrayMesh" uid="uid://cspx1n5qwtglb" path="res://Meshes/Decor/DecorJacks_mesh.res" id="14_abwtj"]
+[ext_resource type="PackedScene" uid="uid://cqlac7stcmg7e" path="res://Meshes/Decor/DecorFrame_mesh.glb" id="15_huwy3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8vppf"]
 material = ExtResource("1_dct37")
@@ -133,6 +135,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 15.5)
 
 [node name="GameMgr" type="Node" parent="."]
 script = ExtResource("13_n5gmk")
+
+[node name="DecorJacksMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 21)
+mesh = ExtResource("14_abwtj")
+
+[node name="DecorFrame_mesh" parent="." instance=ExtResource("15_huwy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, 24)
 
 [connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]
