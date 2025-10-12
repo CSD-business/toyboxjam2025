@@ -74,6 +74,7 @@ height = 2.50757
 radius = 0.6
 
 [node name="Unit" type="CharacterBody3D"]
+visible = false
 script = ExtResource("1_qc4db")
 
 [node name="Stats Component" type="Node" parent="."]

@@ -255,11 +255,12 @@ Unit_Name = "Unit"
 Unit_Type = "Defense"
 Unit_Cost = 2
 Unit_Strength = 1
-Unit_Defense = 2
+Unit_Defense = 1
+Unit_Max_Health = 15.0
 Unit_Range = 2.0
-Unit_Attack_Speed = 1.0
+Unit_Attack_Speed = 0.87
 Unit_Animation_Attack_Delay = 0.4
-Unit_Movement_Speed = 1.25
+Unit_Movement_Speed = 1.0
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_jewsk")
@@ -286,6 +287,8 @@ visible = false
 mesh = ExtResource("7_7cb7s")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 1.0
 
 [node name="Arrow" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

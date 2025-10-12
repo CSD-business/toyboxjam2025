@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://42gfe5fwvv5l"]
+[gd_scene load_steps=8 format=3 uid="uid://42gfe5fwvv5l"]
 
 [ext_resource type="Texture2D" uid="uid://dhyyw3iktb53n" path="res://UI/MatTex/MenuImg0_di.png" id="1_8yw0e"]
 [ext_resource type="Script" uid="uid://b440c2xy6fdji" path="res://UI/unit_btn.gd" id="2_a7yet"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://iq2n0wgccksx" path="res://UI/MatTex/MenuImg2_di.png" id="2_qwcj3"]
 [ext_resource type="Texture2D" uid="uid://c2t5sd3pe1fio" path="res://UI/MatTex/MenuImg1_di.png" id="3_h52gf"]
 [ext_resource type="Texture2D" uid="uid://d2wnxu5afusyv" path="res://UI/MatTex/MenuImg3_di.png" id="4_h52gf"]
+[ext_resource type="Theme" uid="uid://bg4wdyarggodk" path="res://Themes/default_theme.tres" id="6_j88vj"]
 
 [node name="UnitBtn" type="TextureButton"]
 anchors_preset = 15
@@ -37,8 +38,10 @@ offset_right = 38.5
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_j88vj")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 text = "Attack"
-label_settings = ExtResource("2_j7o4u")
 horizontal_alignment = 1
 
 [node name="CostTxt" type="Label" parent="."]

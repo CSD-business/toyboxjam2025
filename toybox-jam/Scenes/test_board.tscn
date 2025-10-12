@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://50ukxb886e3s"]
+[gd_scene load_steps=20 format=3 uid="uid://50ukxb886e3s"]
 
 [ext_resource type="PackedScene" uid="uid://cxe2i3bl3ygda" path="res://UI/player_hud.tscn" id="1_a83bs"]
 [ext_resource type="Material" uid="uid://d2eeq2xd3ovxg" path="res://Materials/debug_mat.tres" id="1_dct37"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ba3lddhvv5a84" path="res://Scenes/enemy_mgr.tscn" id="3_6b6oi"]
 [ext_resource type="Script" uid="uid://7ij5o482pvt4" path="res://Scripts/pieces.gd" id="4_a83bs"]
 [ext_resource type="PackedScene" uid="uid://ye5taop0eltw" path="res://Scenes/Units/UnitAtkE.tscn" id="4_sm0ve"]
-[ext_resource type="PackedScene" uid="uid://c7vbf8uywhhfv" path="res://Scenes/Units/BaseUnit.tscn" id="5_nafu8"]
 [ext_resource type="PackedScene" uid="uid://cvwfgpvf1hfvq" path="res://Scenes/Units/UnitDefE.tscn" id="5_osc7p"]
 [ext_resource type="PackedScene" uid="uid://ci113yerpol0s" path="res://Scenes/Units/UnitRngE.tscn" id="6_n5gmk"]
 [ext_resource type="PackedScene" uid="uid://608dv7f546x5" path="res://Scenes/mouse_mgr.tscn" id="6_nafu8"]
+[ext_resource type="PackedScene" uid="uid://bysogr38r2btk" path="res://Scenes/Units/UnitTowA.tscn" id="11_n5gmk"]
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="12_osc7p"]
+[ext_resource type="Script" uid="uid://dq16iy4qs60bi" path="res://Scripts/game_mgr.gd" id="13_n5gmk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8vppf"]
 material = ExtResource("1_dct37")
@@ -118,8 +119,8 @@ script = ExtResource("4_a83bs")
 [node name="Tower" parent="Pieces" instance=ExtResource("3_4yq3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2961, 0, 3.87154)
 
-[node name="Unit" parent="Pieces" instance=ExtResource("5_nafu8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18042, 0, 17.4175)
+[node name="UnitTowA" parent="Pieces" instance=ExtResource("11_n5gmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17791, 0, 20.263)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10.5)
@@ -129,6 +130,9 @@ shape = SubResource("BoxShape3D_nafu8")
 
 [node name="AllyRegion" parent="." instance=ExtResource("12_osc7p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 15.5)
+
+[node name="GameMgr" type="Node" parent="."]
+script = ExtResource("13_n5gmk")
 
 [connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]

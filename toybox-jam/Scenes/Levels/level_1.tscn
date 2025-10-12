@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1q1lpmgnl7b3"]
+[gd_scene load_steps=22 format=3 uid="uid://b1q1lpmgnl7b3"]
 
 [ext_resource type="PackedScene" uid="uid://cxe2i3bl3ygda" path="res://UI/player_hud.tscn" id="1_chwpn"]
 [ext_resource type="PackedScene" uid="uid://608dv7f546x5" path="res://Scenes/mouse_mgr.tscn" id="2_af3po"]
@@ -17,6 +17,7 @@
 [ext_resource type="ArrayMesh" uid="uid://wkmhbjm7ynuq" path="res://Meshes/Blocks/blocks_Cube_005.res" id="15_6ssoq"]
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="16_8i23i"]
 [ext_resource type="ArrayMesh" uid="uid://dtofr5xo47raw" path="res://Meshes/Blocks/blocks_Cube_006.res" id="16_imks0"]
+[ext_resource type="Script" uid="uid://dq16iy4qs60bi" path="res://Scripts/game_mgr.gd" id="18_31phq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8i23i"]
 size = Vector3(40, 0, 80)
@@ -31,6 +32,8 @@ size = Vector2(9, 20)
 [node name="Level1" type="Node3D"]
 
 [node name="PlayerHUD" parent="." instance=ExtResource("1_chwpn")]
+This_Level = null
+level_unlock_key = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.464624, -0.512195, 0.722343, -0.184737, 0.741722, 0.644765, 0, 0, 0)
@@ -129,6 +132,9 @@ mesh = ExtResource("16_imks0")
 
 [node name="AllyRegion" parent="." instance=ExtResource("16_8i23i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 13.7503)
+
+[node name="GameMgr" type="Node" parent="."]
+script = ExtResource("18_31phq")
 
 [connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]

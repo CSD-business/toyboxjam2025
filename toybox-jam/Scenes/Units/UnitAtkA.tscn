@@ -254,10 +254,11 @@ script = ExtResource("2_qo3cf")
 Unit_Name = "Unit"
 Unit_Type = "Attack"
 Unit_Cost = 1
-Unit_Strength = 2
+Unit_Strength = 3
 Unit_Defense = 1
+Unit_Max_Health = 5.0
 Unit_Range = 2.0
-Unit_Attack_Speed = 0.5
+Unit_Attack_Speed = 0.87
 Unit_Animation_Attack_Delay = 0.5
 Unit_Movement_Speed = 2.0
 
@@ -286,6 +287,8 @@ visible = false
 mesh = ExtResource("7_siuja")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 1.0
 
 [node name="Arrow" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
@@ -312,7 +315,7 @@ mesh = SubResource("ArrayMesh_j02ye")
 skeleton = NodePath("")
 
 [node name="Sword_001" type="MeshInstance3D" parent="Unit/Unit_Pivot"]
-transform = Transform3D(-0.229653, -0.972854, -0.00451438, -0.973273, 0.229535, 0.00116781, -0.000631651, 0.0294758, -0.158092, 0, 0.84045, -0.867504)
+transform = Transform3D(-0.229653, -0.972854, -0.00451439, -0.973273, 0.229535, 0.00116781, -0.000631651, 0.0294758, -0.158092, 0, 0.84045, -0.867504)
 mesh = SubResource("ArrayMesh_m8p06")
 skeleton = NodePath("")
 

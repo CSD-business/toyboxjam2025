@@ -250,10 +250,11 @@ script = ExtResource("2_ad1il")
 Unit_Name = "Unit"
 Unit_Type = "Ranged"
 Unit_Cost = 2
-Unit_Strength = 3
+Unit_Strength = 4
 Unit_Defense = 1
-Unit_Range = 3.0
-Unit_Attack_Speed = 2.0
+Unit_Max_Health = 3.0
+Unit_Range = 5.0
+Unit_Attack_Speed = 1.34
 Unit_Animation_Attack_Delay = 0.75
 Unit_Movement_Speed = 1.5
 
@@ -282,6 +283,8 @@ visible = false
 mesh = ExtResource("7_684fg")
 
 [node name="NavAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 3.0
 
 [node name="Arrow" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

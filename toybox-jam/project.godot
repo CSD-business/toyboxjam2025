@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Toybox Jam"
-run/main_scene="uid://50ukxb886e3s"
+run/main_scene="uid://dh4unpbq20x6v"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Textures/icon.svg"
 

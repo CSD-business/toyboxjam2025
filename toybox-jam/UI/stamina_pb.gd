@@ -1,6 +1,9 @@
 extends TextureProgressBar
 
-var StaminaCharge = 0.75
+var StaminaCharge = 0.5
+
+func _ready():
+	GlobalVars.Stamina = 0
 
 func _process(delta: float) -> void:
 	if GlobalVars.Stamina >= max_value:
