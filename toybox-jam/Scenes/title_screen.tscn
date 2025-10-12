@@ -41,6 +41,7 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsy20"]
 albedo_texture = ExtResource("14_ycay6")
+metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_07cxn"]
 size = Vector2(9, 11)
