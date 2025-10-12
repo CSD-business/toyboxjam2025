@@ -1,6 +1,7 @@
 extends Control
 @export var level_unlock_key : int
 var round_over = false 
+var round_starting = true
 func _process(delta):
 	polling_function()
 func _ready():
@@ -8,7 +9,9 @@ func _ready():
 
 func polling_function():
 	if GlobalVars.GameIsGoing == false:
-		await get_tree().create_timer(1).timeout
+		if round_starting == true:
+			await get_tree().create_timer(1).timeout
+			round_starting = false
 		if GlobalVars.EnemyTowers == 0:
 			end_round(0)
 		if GlobalVars.FriendlyTowers == 0:

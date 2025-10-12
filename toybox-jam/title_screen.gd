@@ -84,3 +84,4 @@ func _input(event):
 		$Control/Levels/VBoxContainer/HBoxContainer/Level3.disabled = false
 		$Control/Levels/VBoxContainer/HBoxContainer/Level4.disabled = false
 		$Control/Levels/VBoxContainer/HBoxContainer/Level5.disabled = false
+		$DecorFrameMesh.show()

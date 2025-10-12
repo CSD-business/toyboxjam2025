@@ -39,6 +39,7 @@ level_unlock_key = 4
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.464624, -0.512195, 0.722343, -0.184737, 0.741722, 0.644765, 0, 0, 0)
 shadow_enabled = true
+shadow_opacity = 0.8
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.13333e-08, -0.945598, 0.325337, 1.42209e-08, 0.325337, 0.945598, -1, 4.37113e-08, 1.77636e-15, 12.2818, 34.6376, 11.9886)
@@ -179,7 +180,7 @@ script = ExtResource("18_iw2e1")
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_khr6i")
-volume_db = -16.0
+volume_db = -12.0
 autoplay = true
 
 [node name="BlocksCube007" type="MeshInstance3D" parent="."]

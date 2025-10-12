@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dnsry4a058utk" path="res://Scenes/Units/UnitAtkA.tscn" id="11_bsy20"]
 [ext_resource type="PackedScene" uid="uid://bmx1n6xy1aq76" path="res://Scenes/AllyRegion.tscn" id="12_o1e67"]
 [ext_resource type="PackedScene" uid="uid://bd4ekrd38fjpm" path="res://Meshes/Fort/fortenemy.glb" id="13_ycay6"]
-[ext_resource type="Texture2D" uid="uid://bq7i5jo7hm3xv" path="res://Textures/scannedtutorial.JPG" id="14_ycay6"]
-[ext_resource type="Texture2D" uid="uid://d0pk4bctj71yp" path="res://Textures/scannedcredits.JPG" id="15_k1y01"]
+[ext_resource type="Texture2D" uid="uid://bq7i5jo7hm3xv" path="res://textures/scannedtutorial.JPG" id="14_ycay6"]
+[ext_resource type="Texture2D" uid="uid://d0pk4bctj71yp" path="res://textures/scannedcredits.JPG" id="15_k1y01"]
 [ext_resource type="PackedScene" uid="uid://ctwmlmwo1gusn" path="res://Scenes/Units/UnitTowE.tscn" id="15_x2pfe"]
 [ext_resource type="PackedScene" uid="uid://ci113yerpol0s" path="res://Scenes/Units/UnitRngE.tscn" id="16_k1y01"]
 [ext_resource type="PackedScene" uid="uid://3dfva1u2jmcj" path="res://Scenes/Units/UnitDefA.tscn" id="17_4blwa"]
@@ -34,6 +34,7 @@ sky_material = SubResource("ProceduralSkyMaterial_sqelc")
 [sub_resource type="Environment" id="Environment_o1e67"]
 background_mode = 2
 background_energy_multiplier = 0.5
+background_intensity = 1.0
 sky = SubResource("Sky_w5sh6")
 tonemap_mode = 2
 glow_enabled = true
@@ -62,6 +63,7 @@ environment = SubResource("Environment_o1e67")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.429121, -0.768332, 0.474892, 0.030876, 0.537931, 0.842423, -0.902719, -0.346839, 0.25456, 0, 0, 0)
 shadow_enabled = true
+shadow_opacity = 0.8
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -507,6 +509,8 @@ material_override = SubResource("StandardMaterial3D_bsy20")
 mesh = SubResource("PlaneMesh_07cxn")
 skeleton = NodePath("../Camera3D")
 
+[node name="Sprite3D" type="Sprite3D" parent="Environment/Tutorial"]
+
 [node name="Credits" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.799799, 0, 0.600267, 0, 1, 0, -0.600267, 0, 0.799799, 8.01668, 1.2089, -10.3456)
 material_override = SubResource("StandardMaterial3D_4blwa")
@@ -534,7 +538,7 @@ stream = ExtResource("19_4blwa")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_vqgqr")
-volume_db = -12.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

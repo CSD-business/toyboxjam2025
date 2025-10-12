@@ -5,7 +5,7 @@ var enemy_castles = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	GlobalVars.PlayerCasualties = 0
 	for piece in $"../Pieces".get_children():
 		if piece.get_node("Stats Component").Unit_Name == "Tower":
 			print(piece.name)

@@ -36,10 +36,6 @@ size = Vector2(9, 20)
 [node name="PlayerHUD" parent="." instance=ExtResource("1_chwpn")]
 level_unlock_key = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.464624, -0.512195, 0.722343, -0.184737, 0.741722, 0.644765, 0, 0, 0)
-shadow_enabled = true
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.62443e-08, -0.829174, 0.55899, 2.44342e-08, 0.55899, 0.829174, -1, 4.37114e-08, 7.57908e-15, 4.29389, 11.8293, 9.98862)
 fov = 50.0
@@ -139,7 +135,7 @@ script = ExtResource("18_31phq")
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_7hll7")
-volume_db = -16.0
+volume_db = -12.0
 autoplay = true
 
 [node name="DecorJacksMesh" type="MeshInstance3D" parent="."]
@@ -161,6 +157,11 @@ mesh = ExtResource("20_fayjm")
 [node name="DecorJacksMesh4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.866025, 0.353553, 0.353553, -0.5, 0.612372, 0.612372, -1.49012e-08, -0.707107, 0.707107, -7, 1.7, 21.5)
 mesh = ExtResource("20_fayjm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.464624, -0.512195, 0.722343, -0.184737, 0.741722, 0.644765, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.8
 
 [connection signal="TrySpawnUnit" from="MouseMgr" to="Pieces" method="Try_Spawn_Unit"]
 [connection signal="SpawnEnemyUnit" from="EnemyMgr" to="Pieces" method="Spawn_Enemy_Unit"]
